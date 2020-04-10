@@ -22,7 +22,10 @@ public abstract class Enterprise extends Organization{
     }
     
     public enum EnterpriseType{
-        Hospital("Hospital");
+        Fitness("Fitness"),
+        Market("Market"),
+        PhysicalTherapy("PhysicalTherapy");
+        
         
         private String value;
         

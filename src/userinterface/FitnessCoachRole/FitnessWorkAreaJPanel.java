@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.MarketCashierRole;
+package userinterface.FitnessCoachRole;
 
+import userinterface.MarketCashierRole.*;
 import Business.EcoSystem;
 import Business.Organization.FitnessCoachOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
+public class FitnessWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
@@ -28,7 +28,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public LabAssistantWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
+    public FitnessWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -156,7 +156,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }
         
-        LabTestWorkRequest request = (LabTestWorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
      
         request.setStatus("Processing");
         

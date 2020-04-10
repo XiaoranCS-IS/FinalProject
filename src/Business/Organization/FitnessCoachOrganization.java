@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class FitnessCoachOrganization extends Organization{
 
     public FitnessCoachOrganization() {
-        super(Organization.Type.Lab.getValue());
+        super(Organization.Type.FitnessCoach.getValue());
     }
 
     @Override

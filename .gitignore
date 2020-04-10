@@ -1,3 +1,16 @@
+# Operating System Files
+
+*.DS_Store
+Thumbs.db
+
+# Build Artifacts
+
+.gradle/
+build/
+target/
+bin/
+dependency-reduced-pom.xml
+
 # Compiled class file
 *.class
 
