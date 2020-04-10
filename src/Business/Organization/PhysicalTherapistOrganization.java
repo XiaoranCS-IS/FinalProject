@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PhysicalTherapistOrganization extends Organization{
 
     public PhysicalTherapistOrganization() {
-        super(Organization.Type.Lab.getValue());
+        super(Organization.Type.PhysicalTherapist.getValue());
     }
 
     @Override

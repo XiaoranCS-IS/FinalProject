@@ -31,8 +31,16 @@ public class EnterpriseDirectory {
     //Create enterprise
     public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
         Enterprise enterprise=null;
-        if(type==Enterprise.EnterpriseType.Hospital){
+        if(type==Enterprise.EnterpriseType.Fitness){
             enterprise=new FitnessCoEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.Market){
+            enterprise=new MarketCoEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.PhysicalTherapy){
+            enterprise=new PhysicalTherapyCoEnterprise(name);
             enterpriseList.add(enterprise);
         }
         return enterprise;

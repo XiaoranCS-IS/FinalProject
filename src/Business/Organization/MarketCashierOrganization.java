@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MarketCashierOrganization extends Organization{
 
     public MarketCashierOrganization() {
-        super(Organization.Type.Lab.getValue());
+        super(Organization.Type.MarketCashier.getValue());
     }
 
     @Override

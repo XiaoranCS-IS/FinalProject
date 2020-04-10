@@ -4,7 +4,9 @@
  */
 package userinterface.MarketCashierRole;
 
-import Business.WorkQueue.LabTestWorkRequest;
+import userinterface.FitnessCoachRole.*;
+import Business.WorkQueue.WorkRequest;
+import userinterface.MarketCashierRole.*;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
@@ -18,11 +20,11 @@ import javax.swing.JPanel;
 public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
-    LabTestWorkRequest request;
+    WorkRequest request;
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer, LabTestWorkRequest request) {
+    public ProcessWorkRequestJPanel(JPanel userProcessContainer, WorkRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;
@@ -97,7 +99,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        LabAssistantWorkAreaJPanel dwjp = (LabAssistantWorkAreaJPanel) component;
+        MarketCashierWorkAreaJPanel dwjp = (MarketCashierWorkAreaJPanel) component;
         dwjp.populateTable();
         
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -105,7 +107,6 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-        request.setTestResult(resultJTextField.getText());
         request.setStatus("Completed");
     }//GEN-LAST:event_submitJButtonActionPerformed
 

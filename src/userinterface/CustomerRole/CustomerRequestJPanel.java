@@ -9,7 +9,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.FitnessCoachOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.LabTestWorkRequest;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.util.logging.Level;
@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  *
  * @author raunak
  */
-public class RequestLabTestJPanel extends javax.swing.JPanel {
+public class CustomerRequestJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private Enterprise enterprise;
@@ -28,7 +28,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public RequestLabTestJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
+    public CustomerRequestJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -87,13 +87,14 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         
         String message = messageJTextField.getText();
         
-        LabTestWorkRequest request = new LabTestWorkRequest();
+        WorkRequest request = new WorkRequest();
         request.setMessage(message);
         request.setSender(userAccount);
         request.setStatus("Sent");
         
         Organization org = null;
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()){
+            // todo
             if (organization instanceof FitnessCoachOrganization){
                 org = organization;
                 break;
@@ -111,7 +112,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        DoctorWorkAreaJPanel dwjp = (DoctorWorkAreaJPanel) component;
+        CustomerWorkAreaJPanel dwjp = (CustomerWorkAreaJPanel) component;
         dwjp.populateRequestTable();
         CardLayout layout = (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PhysicalTherapyCoEnterprise extends Enterprise {
     
     public PhysicalTherapyCoEnterprise(String name){
-        super(name,EnterpriseType.Hospital);
+        super(name,EnterpriseType.PhysicalTherapy);
     }
     @Override
     public ArrayList<Role> getSupportedRole() {
