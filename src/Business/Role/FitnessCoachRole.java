@@ -10,6 +10,7 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import userinterface.MarketCashierRole.MarketCashierWorkAreaJPanel;
 import javax.swing.JPanel;
+import userinterface.FitnessCoachRole.FitnessWorkAreaJPanel;
 
 /**
  *
@@ -19,7 +20,7 @@ public class FitnessCoachRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
-        return new MarketCashierWorkAreaJPanel(userProcessContainer, account, organization, business);
+        return new FitnessWorkAreaJPanel(userProcessContainer, account, organization, business);
     }
     
 }

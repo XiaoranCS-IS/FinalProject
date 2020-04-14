@@ -14,12 +14,21 @@ import java.util.ArrayList;
  */
 public class MarketCoEnterprise extends Enterprise {
     
+    private int total;
     public MarketCoEnterprise(String name){
         super(name,EnterpriseType.Market);
     }
     @Override
     public ArrayList<Role> getSupportedRole() {
         return null;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
     
 }
