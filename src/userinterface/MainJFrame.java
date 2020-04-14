@@ -132,6 +132,7 @@ public class MainJFrame extends javax.swing.JFrame {
         //Step1: Check in the system admin user account directory if you have the user
         UserAccount userAccount=system.getUserAccountDirectory().authenticateUser(userName, password);
         
+        Network inNetwork=null;
         Enterprise inEnterprise=null;
         Organization inOrganization=null;
         
@@ -146,6 +147,7 @@ public class MainJFrame extends javax.swing.JFrame {
                        for(Organization organization:enterprise.getOrganizationDirectory().getOrganizationList()){
                            userAccount=organization.getUserAccountDirectory().authenticateUser(userName, password);
                            if(userAccount!=null){
+                               inNetwork=network;
                                inEnterprise=enterprise;
                                inOrganization=organization;
                                break;
@@ -154,6 +156,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         
                     }
                     else{
+                       inNetwork=network;
                        inEnterprise=enterprise;
                        break;
                     }
@@ -173,7 +176,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         else{
             CardLayout layout=(CardLayout)container.getLayout();
-            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, system));
+            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, inNetwork, system));
             layout.next(container);
         }
         
