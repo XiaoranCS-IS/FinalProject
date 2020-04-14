@@ -16,10 +16,17 @@ public abstract class Enterprise extends Organization{
     
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
+    private EnterpriseDirectory coopEnterpriseDirectory; 
 
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
     }
+
+    public EnterpriseDirectory getCoopEnterpriseDirectory() {
+        return coopEnterpriseDirectory;
+    }
+    
+    
     
     public enum EnterpriseType{
         Fitness("Fitness"),
@@ -53,5 +60,6 @@ public abstract class Enterprise extends Organization{
         super(name);
         this.enterpriseType=type;
         organizationDirectory=new OrganizationDirectory();
+        coopEnterpriseDirectory=new EnterpriseDirectory();
     }
 }

@@ -4,13 +4,15 @@
  */
 package userinterface.ManagerRole;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Organization.Organization;
-import Business.Organization.Organization.Type;
-import Business.Organization.OrganizationDirectory;
+import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,42 +22,52 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManageOrderJPanel extends javax.swing.JPanel {
 
+    private UserAccount userAccount;
     private Enterprise enterprise;
+    private Network network;
+    private EcoSystem ecoSystem;
     private JPanel userProcessContainer;
     
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageOrderJPanel(JPanel userProcessContainer,Enterprise enterprise) {
+    public ManageOrderJPanel(JPanel userProcessContainer, UserAccount account, Enterprise enterprise, Network network, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.userAccount = account;
         this.enterprise = enterprise;
+        this.network = network;
+        this.ecoSystem = ecoSystem;
         
         populateTable();
         populateCombo();
     }
     
     private void populateCombo(){
-        orderJComboBox.removeAllItems();
+        enterpriseJComboBox.removeAllItems();
         
-//        for (WorkRequest workRequest : enterprise.getWorkQueue().getWorkRequestList()){
-//            if (!type.getValue().equals(Type.Manager.getValue()))
-//                orderJComboBox.addItem(type);
-//        }
+        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()){
+            //show other type enterprise
+            if (!e.getEnterpriseType().equals(this.enterprise.getEnterpriseType())){
+                enterpriseJComboBox.addItem(e);
+            }
+        }
     }
 
     private void populateTable(){
-//        DefaultTableModel model = (DefaultTableModel) orderJTable.getModel();
-//        
-//        model.setRowCount(0);
-//        
-//        for (Organization organization : directory.getOrganizationList()){
-//            Object[] row = new Object[2];
-//            row[0] = organization.getOrganizationID();
-//            row[1] = organization.getName();
-//            
-//            model.addRow(row);
-//        }
+        DefaultTableModel model = (DefaultTableModel) orderJTable.getModel();
+        
+        model.setRowCount(0);
+        
+        for (WorkRequest workRequest : userAccount.getWorkQueue().getWorkRequestList()){
+            Object[] row = new Object[4];
+            row[0] = workRequest;
+            row[1] = workRequest.getSender();
+            row[2] = workRequest.getRequestDate();
+            row[3] = workRequest.getStatus();
+            
+            model.addRow(row);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,7 +83,9 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         acceptBtn = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        orderJComboBox = new javax.swing.JComboBox();
+        enterpriseJComboBox = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        seekBtn = new javax.swing.JButton();
 
         orderJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,10 +135,20 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Enterprise ");
 
-        orderJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        orderJComboBox.addActionListener(new java.awt.event.ActionListener() {
+        enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orderJComboBoxActionPerformed(evt);
+                enterpriseJComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel2.setText("Manage Cooperation");
+
+        seekBtn.setText("Seek Cooperation");
+        seekBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seekBtnActionPerformed(evt);
             }
         });
 
@@ -133,44 +157,70 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34)
-                .addComponent(orderJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(353, 353, 353))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(65, 65, 65)
                 .addComponent(backJButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addComponent(seekBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(acceptBtn)
                 .addGap(143, 143, 143))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orderJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backJButton)
-                    .addComponent(acceptBtn))
-                .addContainerGap(145, Short.MAX_VALUE))
+                    .addComponent(acceptBtn)
+                    .addComponent(seekBtn))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
 
-        Type type = (Type) orderJComboBox.getSelectedItem();
-//        directory.createOrganization(type);
-//        populateTable();
+        int selectedOrder = orderJTable.getSelectedRow();
+
+        if (selectedOrder < 0){
+            JOptionPane.showMessageDialog(null, "Please select an order from table", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            //save coop info
+            WorkRequest request = (WorkRequest) orderJTable.getValueAt(selectedOrder, 0);
+            String message = request.getMessage();
+            String[] ss = message.split(" ");
+            Enterprise senderEnterprise = network.getEnterpriseDirectory().getEnterpriseByName(ss[ss.length-1]);
+            enterprise.getCoopEnterpriseDirectory().getEnterpriseList().add(senderEnterprise);
+            
+            userAccount.getWorkQueue().getWorkRequestList().remove(request);
+            JOptionPane.showMessageDialog(null, "Cooperation Accepted!");
+            DB4OUtil.getInstance().storeSystem(ecoSystem);
+            populateTable();
+        }
+
     }//GEN-LAST:event_acceptBtnActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -180,16 +230,42 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
-    private void orderJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderJComboBoxActionPerformed
+    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_orderJComboBoxActionPerformed
+    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
 
+    private void seekBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seekBtnActionPerformed
+        // Find receive manager useraccount
+        Enterprise receiveEnterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
+        UserAccount receiveAccount = getManagerUserAccount(receiveEnterprise);
+        
+        WorkRequest workRequest = new WorkRequest();
+        workRequest.setMessage(enterprise.getEnterpriseType() + " Company: " + enterprise.getName());
+        workRequest.setReceiver(receiveAccount);
+        workRequest.setSender(userAccount);
+        workRequest.setRequestDate(new Date());
+        workRequest.setStatus("Asking");
+        
+        receiveAccount.getWorkQueue().getWorkRequestList().add(workRequest);
+    }//GEN-LAST:event_seekBtnActionPerformed
+    
+    private UserAccount getManagerUserAccount(Enterprise enterprise) {
+        for (UserAccount ua : enterprise.getUserAccountDirectory().getUserAccountList()) {
+            if (ua.getRole().toString() == "Business.Role.ManagerRole") {
+                return ua;
+            }
+        }
+        return null;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptBtn;
     private javax.swing.JButton backJButton;
+    private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox orderJComboBox;
     private javax.swing.JTable orderJTable;
+    private javax.swing.JButton seekBtn;
     // End of variables declaration//GEN-END:variables
 }

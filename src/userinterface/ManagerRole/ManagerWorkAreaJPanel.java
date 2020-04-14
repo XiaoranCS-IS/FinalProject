@@ -2,7 +2,10 @@
 
 package userinterface.ManagerRole;
 
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -13,12 +16,19 @@ import javax.swing.JPanel;
 public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
+    UserAccount userAccount;
     Enterprise enterprise;
+    Network network;
+    EcoSystem ecoSystem;
+    
     /** Creates new form AdminWorkAreaJPanel */
-    public ManagerWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+    public ManagerWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, Network network, EcoSystem ecoSystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
         this.enterprise = enterprise;
+        this.network = network;
+        this.ecoSystem = ecoSystem;
         valueLabel.setText(enterprise.getName());
     }
     
@@ -112,7 +122,11 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
 
     private void OrderJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderJButtonActionPerformed
-        // TODO add your handling code here:
+        
+        ManageOrderJPanel manageOrderJPanel = new ManageOrderJPanel(userProcessContainer, userAccount, enterprise, network, ecoSystem);
+        userProcessContainer.add("manageOrderJPanel", manageOrderJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_OrderJButtonActionPerformed
     
     
