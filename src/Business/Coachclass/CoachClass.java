@@ -7,6 +7,7 @@ package Business.Coachclass;
 
 import Business.Role.CustomerRole;
 import Business.Role.FitnessCoachRole;
+import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,7 +17,7 @@ import java.util.Date;
  */
 public class CoachClass {
     private String classname;
-    private FitnessCoachRole coach;
+    private String coach;
     private int capacity;
     private int perticipants;
     private Date time;
@@ -41,11 +42,11 @@ public class CoachClass {
         this.classname = classname;
     }
 
-    public FitnessCoachRole getCoach() {
+    public String getCoach() {
         return coach;
     }
 
-    public void setCoach(FitnessCoachRole coach) {
+    public void setCoach(String coach) {
         this.coach = coach;
     }
 
@@ -79,6 +80,10 @@ public class CoachClass {
 
     public void setAttendsheet(ArrayList<CustomerRole> attendsheet) {
         this.attendsheet = attendsheet;
+    }
+    @Override
+    public String toString() {
+        return classname;
     }
     
 }

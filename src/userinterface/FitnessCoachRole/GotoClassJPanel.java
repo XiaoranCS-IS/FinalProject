@@ -39,7 +39,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
         this.business = business;
         this.labOrganization = (FitnessCoachOrganization) organization;
         this.cc = coachclass;
-        jLabel1.setText("Coach " + userAccount.getUsername() + "'s order: ");
+        jLabel1.setText("This is Coach  " + userAccount.getUsername() + "'s  "+cc.getClassname()+" Class Room: ");
 
         populateTable();
 
@@ -54,8 +54,8 @@ public class GotoClassJPanel extends javax.swing.JPanel {
             if (request.getMessage().equals(cc.getClassname())) {
                 Object[] row = new Object[4];
                 row[0] = request;
-                row[1] = request.getSender().getEmployee().getName();
-                row[2] = request.getReceiver() == null ? null : request.getReceiver().getEmployee().getName();
+                row[1] = request.getSender().getUsername();
+                row[2] = request.getReceiver().getUsername();
                 row[3] = request.getStatus();
 
                 model.addRow(row);
@@ -75,7 +75,6 @@ public class GotoClassJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
         assignJButton = new javax.swing.JButton();
-        refreshJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -125,14 +124,6 @@ public class GotoClassJPanel extends javax.swing.JPanel {
         });
         add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, -1, 50));
 
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
-            }
-        });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Coach  xxx 's order: ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
@@ -156,14 +147,10 @@ public class GotoClassJPanel extends javax.swing.JPanel {
 
         WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
         request.setReceiver(userAccount);
-        request.setStatus("Yes");
+        request.setStatus("Attended");
         populateTable();
 
     }//GEN-LAST:event_assignJButtonActionPerformed
-
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
-        populateTable();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -175,7 +162,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
 
         WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
         request.setReceiver(userAccount);
-        request.setStatus("No");
+        request.setStatus("Not Attended");
         populateTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -184,7 +171,6 @@ public class GotoClassJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton refreshJButton;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

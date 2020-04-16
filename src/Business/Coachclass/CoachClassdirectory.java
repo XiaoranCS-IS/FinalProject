@@ -31,12 +31,13 @@ public class CoachClassdirectory {
         CoachClasslist.remove(coachClass);
         
     }
-    public CoachClass addCoachClass(String classname,FitnessCoachRole coach,int capacity,Date time){
+    public CoachClass addCoachClass(String classname,String coach,int capacity,Date time){
         CoachClass coachClass = new CoachClass();
         coachClass.setClassname(classname);
         coachClass.setCapacity(capacity);
         coachClass.setCoach(coach);
         coachClass.setTime(time);
+        CoachClasslist.add(coachClass);
         return coachClass;
     }
     

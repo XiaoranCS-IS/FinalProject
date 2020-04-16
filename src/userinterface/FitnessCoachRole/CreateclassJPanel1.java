@@ -14,6 +14,8 @@ import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,17 +33,19 @@ public class CreateclassJPanel1 extends javax.swing.JPanel {
     private CoachClass cc;
     private CoachClassdirectory ccd;
 
-    CreateclassJPanel1(CoachClassdirectory ccd) {
+    CreateclassJPanel1(JPanel userProcessContainer,UserAccount userAccount, CoachClassdirectory ccd) {
         initComponents();
-        this.container = container;
+        this.container = userProcessContainer;
         this.ccd = ccd;
-        nameJTextField1.setEnabled(false);
-        jLabel6.setText("Class By Coach: " + cc.getCoach());
+        this.cc = new CoachClass();
+        cc.setCoach(userAccount.getUsername());
+
+//        nameJTextField1.setEnabled(false);
+        jLabel6.setText("Class By Coach:   " + userAccount.getUsername());
 
 //        roleJComboBox.addItem(cc.getTime());
-        nameJTextField2.setText(cc.getClassname());
-        nameJTextField1.setText(String.valueOf(cc.getCapacity()));
-
+//        nameJTextField2.setText(cc.getClassname());
+//        nameJTextField1.setText(String.valueOf(cc.getCapacity()));
     }
 
     /**
@@ -169,10 +173,31 @@ public class CreateclassJPanel1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
-        cc.setClassname(nameJTextField2.getText());
-        cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
+
+        if (!(nameJTextField2.getText().equals("") || nameJTextField1.getText().equals(""))) {
+            if (Integer.parseInt(nameJTextField1.getText()) < 200 && Integer.parseInt(nameJTextField1.getText()) > 0) {
+                cc.setClassname(nameJTextField2.getText());
+                cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
 //        cc.setTime(time);
-        ccd.addCoachClass(cc.getClassname(), cc.getCoach(), cc.getCapacity(), cc.getTime());
+
+
+                ccd.addCoachClass(cc.getClassname(), cc.getCoach(), cc.getCapacity(), cc.getTime());
+                JOptionPane.showMessageDialog(null, "Class  created successfully !");
+
+                container.remove(this);
+                CardLayout layout = (CardLayout) container.getLayout();
+                layout.previous(container);
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Capacity  must between 1-200 !");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "please fill all items !");
+
+        }
+
+
     }//GEN-LAST:event_createUserJButtonActionPerformed
 
     private void backjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backjButton1ActionPerformed

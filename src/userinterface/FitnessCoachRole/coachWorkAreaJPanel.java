@@ -36,6 +36,7 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.business = business;
         this.labOrganization = (FitnessCoachOrganization) organization;
+       
         this.ccd = ccd;
         jLabel2.setText("Coach " + userAccount.getUsername() + ", welcome! ");
 
@@ -79,6 +80,7 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         manageEmployeeJButton1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -124,13 +126,13 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2.setText("Coach xxx, welcome! ");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        manageEmployeeJButton1.setText("Update Class");
+        manageEmployeeJButton1.setText("Reschedule Class");
         manageEmployeeJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButton1ActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 110, 40));
+        add(manageEmployeeJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 150, 40));
 
         jButton1.setText("Create New Class");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -139,6 +141,14 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 150, 40));
+
+        jButton2.setText("refresh");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
@@ -170,7 +180,7 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
 
         CoachClass coachclass = (CoachClass) workRequestJTable.getValueAt(selectedRow, 0);
 
-        updateclassJPanel uJPanel = new updateclassJPanel(coachclass, ccd);
+        updateclassJPanel uJPanel = new updateclassJPanel(userProcessContainer,coachclass, ccd);
         userProcessContainer.add("updateeclassJPanel", uJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -179,7 +189,7 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CreateclassJPanel1 cJPanel = new CreateclassJPanel1( ccd);
+        CreateclassJPanel1 cJPanel = new CreateclassJPanel1(userProcessContainer,userAccount, ccd);
         userProcessContainer.add("CreateclassJPanel1", cJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -187,9 +197,15 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton manageEmployeeJButton;

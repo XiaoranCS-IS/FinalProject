@@ -14,6 +14,7 @@ import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,9 +32,9 @@ public class updateclassJPanel extends javax.swing.JPanel {
     private CoachClass cc;
     private CoachClassdirectory ccd;
     
-    updateclassJPanel(CoachClass cc, CoachClassdirectory ccd) {
+    updateclassJPanel(JPanel userProcessContainer,CoachClass cc, CoachClassdirectory ccd) {
         initComponents();
-        this.container = container;
+        this.container = userProcessContainer;
         this.ccd = ccd;
         ccd.deleteCoachClass(cc);
         nameJTextField1.setEnabled(false);
@@ -155,9 +156,24 @@ public class updateclassJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
-        cc.setClassname(nameJTextField2.getText());
-        cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
-        ccd.addCoachClass(cc.getClassname(), cc.getCoach(), cc.getCapacity(), cc.getTime());
+//         if (!(nameJTextField2.getText().equals("") || nameJTextField1.getText().equals(""))) {
+//            if (Integer.parseInt(nameJTextField1.getText()) < 200 && Integer.parseInt(nameJTextField1.getText()) > 0) {
+//                cc.setClassname(nameJTextField2.getText());
+//                cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
+//        cc.setTime(time);
+
+
+//                ccd.addCoachClass(cc.getClassname(), cc.getCoach(), cc.getCapacity(), cc.getTime());
+                JOptionPane.showMessageDialog(null, "Class  Rescheduled  successfully !");
+
+                container.remove(this);
+                CardLayout layout = (CardLayout) container.getLayout();
+                layout.previous(container);
+                
+
+//        cc.setClassname(nameJTextField2.getText());
+//        cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
+//        ccd.addCoachClass(cc.getClassname(), cc.getCoach(), cc.getCapacity(), cc.getTime());
 
 //        cc.setTime(time);
 
