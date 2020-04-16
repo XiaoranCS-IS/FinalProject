@@ -7,7 +7,6 @@ package userinterface.MarketCashierRole;
 import userinterface.FitnessCoachRole.*;
 import userinterface.MarketCashierRole.*;
 import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
 import Business.Organization.FitnessCoachOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
@@ -30,7 +29,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public MarketCashierWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
+    public MarketCashierWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;

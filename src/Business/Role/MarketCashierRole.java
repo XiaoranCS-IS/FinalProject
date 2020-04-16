@@ -20,7 +20,7 @@ public class MarketCashierRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
-        return new MarketCashierWorkAreaJPanel(userProcessContainer, account, organization, enterprise, business);
+        return new MarketCashierWorkAreaJPanel(userProcessContainer, account, organization, business);
     }
     
 }

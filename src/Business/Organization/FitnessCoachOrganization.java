@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.Coachclass.CoachClass;
 import Business.Role.FitnessCoachRole;
 import Business.Role.Role;
 import java.util.ArrayList;
@@ -12,10 +13,13 @@ import java.util.ArrayList;
  *
  * @author raunak
  */
-public class FitnessCoachOrganization extends Organization{
+public class FitnessCoachOrganization extends Organization {
+
+    private ArrayList<CoachClass> allclasslist;
 
     public FitnessCoachOrganization() {
         super(Organization.Type.FitnessCoach.getValue());
+        allclasslist= new ArrayList<CoachClass>();
     }
 
     @Override
@@ -24,8 +28,5 @@ public class FitnessCoachOrganization extends Organization{
         roles.add(new FitnessCoachRole());
         return roles;
     }
-     
-   
-    
-    
+
 }

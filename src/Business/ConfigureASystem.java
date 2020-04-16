@@ -1,6 +1,7 @@
 package Business;
 
 import Business.Employee.Employee;
+import Business.Role.FitnessCoachRole;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
 
@@ -22,9 +23,11 @@ public class ConfigureASystem {
         
         
         Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
+                Employee RR = system.getEmployeeDirectory().createEmployee("RR");
+
         
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
-        
+        UserAccount c = system.getUserAccountDirectory().createUserAccount("coach", "coach", RR, new FitnessCoachRole());
         return system;
     }
     
