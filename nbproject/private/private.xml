@@ -3,44 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/ManagerRole/ManagerWorkAreaJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Role/PhysicalTherapistRole.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Enterprise/FitnessCoEnterprise.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Organization/CustomerOrganization.java</file>
+            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/ManagerRole/ManagerWorkAreaJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/MarketCashierRole/MarketCashierWorkAreaJPanel.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Enterprise/MarketCoEnterprise.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/MainJFrame.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/FitnessCoachRole/ProcessWorkRequestJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Network/Network.java</file>
+            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/ManagerRole/ManageEmployeeJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/CustomerRole/CustomerWorkAreaJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/SystemAdminWorkArea/SystemAdminWorkAreaJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Role/ManagerRole.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/WorkQueue/WorkQueue.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/SystemAdminWorkArea/ManageNetworkJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/MarketCashierRole/ProcessWorkRequestJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Role/CustomerRole.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/UserAccount/UserAccount.java</file>
+            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Enterprise/Enterprise.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Role/MarketCashierRole.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/ManagerRole/ManageOrganizationJPanel.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Organization/ManagerOrganization.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/FitnessCoachRole/FitnessWorkAreaJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Role/Role.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/WorkQueue/WorkRequest.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/SystemAdminWorkArea/ManageEnterpriseManagerJPanel.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Organization/MarketCashierOrganization.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/DB4OUtil/DB4OUtil.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/PhysicalTherapistRole/ProcessWorkRequestJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/ConfigureASystem.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Organization/OrganizationDirectory.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Enterprise/EnterpriseDirectory.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Organization/Organization.java</file>
+            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/ManagerRole/ManageOrderJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Organization/PhysicalTherapistOrganization.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Enterprise/PhysicalTherapyCoEnterprise.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Organization/FitnessCoachOrganization.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/SystemAdminWorkArea/ManageEnterpriseJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/CustomerRole/CustomerRequestJPanel.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/userinterface/PhysicalTherapistRole/PhysicalTherapistWorkAreaJPanel.java</file>
-            <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Role/FitnessCoachRole.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/Role/SystemAdminRole.java</file>
             <file>file:/Users/lixiaoran/Documents/GitHub/5100team/FinalProject/src/Business/UserAccount/UserAccountDirectory.java</file>
         </group>
