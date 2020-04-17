@@ -30,6 +30,30 @@ public class MarketCoEnterprise extends Enterprise {
         
         foodlist.add(chips);
         
+        Food Pizza=new Food();
+        Pizza.setName("Big-pizza");
+        Pizza.setPrice(3.99);
+        Pizza.setStock(10);
+        Pizza.setStatus(true);
+        
+        foodlist.add(Pizza);
+        
+        Food cola=new Food();
+        cola.setName("Coca-Cola");
+        cola.setPrice(2.98);
+        cola.setStock(15);
+        cola.setStatus(true);
+        
+        foodlist.add(cola);
+        
+        Food app=new Food();
+        app.setName("Apple-pie");
+        app.setPrice(6.88);
+        app.setStock(19);
+        app.setStatus(true);
+        
+        foodlist.add(app);
+        
     }
 
     public ArrayList<Food> getFoodlist() {

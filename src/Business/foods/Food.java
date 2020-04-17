@@ -10,7 +10,7 @@ package Business.foods;
  * @author riverlin
  */
 public class Food {
-    private int price;
+    private double price;
     private String name;
     private int stock;
     private boolean status;
@@ -23,11 +23,11 @@ public class Food {
         this.status = status;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
