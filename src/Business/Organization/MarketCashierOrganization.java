@@ -5,6 +5,7 @@
 package Business.Organization;
 
 import Business.Role.FitnessCoachRole;
+import Business.Role.MarketCashierRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ public class MarketCashierOrganization extends Organization{
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new FitnessCoachRole());
+        roles.add(new MarketCashierRole());
         return roles;
     }
      
