@@ -366,6 +366,8 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             } else {
                 offfood.setStock(offfood.getStock() + 1);
                 JOptionPane.showMessageDialog(null, "wrong stock format! automaticly stock +1 !");
+                enterprise.getFoodlist().add(offfood);
+                populateTable();
 
             }
         }
