@@ -4,14 +4,22 @@
  */
 package userinterface.MarketCashierRole;
 
+import Business.Coachclass.CoachClass;
 import userinterface.FitnessCoachRole.*;
 import userinterface.MarketCashierRole.*;
 import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.MarketCoEnterprise;
+import Business.Network.Network;
 import Business.Organization.FitnessCoachOrganization;
+import Business.Organization.MarketCashierOrganization;
 import Business.Organization.Organization;
+import Business.Role.MarketCashierRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import Business.foods.Food;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,39 +28,82 @@ import javax.swing.table.DefaultTableModel;
  * @author raunak
  */
 public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
-
+    
     private JPanel userProcessContainer;
     private EcoSystem business;
     private UserAccount userAccount;
-    private FitnessCoachOrganization labOrganization;
-    
+    private MarketCashierOrganization labOrganization;
+    private MarketCoEnterprise enterprise;
+    private Network network;
+
     /**
      * Creates new form LabAssistantWorkAreaJPanel
      */
-    public MarketCashierWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business) {
+    public MarketCashierWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
-        this.labOrganization = (FitnessCoachOrganization)organization;
+        this.labOrganization = (MarketCashierOrganization) organization;
+        this.enterprise = (MarketCoEnterprise) enterprise;
+        this.network = network;
         
         populateTable();
     }
     
-    public void populateTable(){
-        DefaultTableModel model = (DefaultTableModel)workRequestJTable.getModel();
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
         
         model.setRowCount(0);
+        DefaultTableModel dtmRes = (DefaultTableModel) jTable1.getModel();
+        dtmRes.setRowCount(0);
         
-        for(WorkRequest request : labOrganization.getWorkQueue().getWorkRequestList()){
-            Object[] row = new Object[4];
-            row[0] = request;
-            row[1] = request.getSender().getEmployee().getName();
-            row[2] = request.getReceiver() == null ? null : request.getReceiver().getEmployee().getName();
-            row[3] = request.getStatus();
+        System.out.println(enterprise.getFoodlist());
+        System.out.println(enterprise.getFoodlist().size());
+        for (Food f : enterprise.getFoodlist()) {
+            //check stock
+            if (f.getStock() <= 0) {
+                f.setStatus(false);
+            }
             
-            model.addRow(row);
+            if (f.isStatus()) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = f;
+                row[1] = f.getPrice();
+                row[2] = f.getStock();
+                
+                model.addRow(row);
+            } else {
+                Object[] row = new Object[dtmRes.getColumnCount()];
+                row[0] = f;
+                row[1] = f.getStock();;
+                
+                dtmRes.addRow(row);
+            }
+        }
+
+//        if (ecosystem.getRestaurantDirectory().getRestaurantList().size() > 0) {
+//            for (Restaurant r : ecosystem.getRestaurantDirectory().getRestaurantList()) {
+//                Object[] row = new Object[dtmRes.getColumnCount()];
+//                row[0] = r;
+////                row[1]=r.getPhone();
+//                dtmRes.addRow(row);
+//            }
+//        }
+        //orders table
+        DefaultTableModel dtmOrders = (DefaultTableModel) jTable2.getModel();
+        dtmOrders.setRowCount(0);
+        if (userAccount.getWorkQueue().getWorkRequestList().size() > 0) {
+            for (WorkRequest w : userAccount.getWorkQueue().getWorkRequestList()) {
+                Object[] row = new Object[dtmOrders.getColumnCount()];
+                row[0] = w;
+                row[1] = w.getSender().getUsername();
+//                row[2] = w.getRequestDate();
+//切分出订单总价
+                row[3] = w.getStatus();
+                dtmOrders.addRow(row);
+            }
         }
     }
 
@@ -69,26 +120,36 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         assignJButton = new javax.swing.JButton();
         processJButton = new javax.swing.JButton();
-        refreshJButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Message", "Sender", "Receiver", "Status"
+                "name", "price", "stock"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -104,79 +165,176 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(0).setResizable(false);
             workRequestJTable.getColumnModel().getColumn(1).setResizable(false);
             workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
-            workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 58, 375, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 330, 100));
 
-        assignJButton.setText("Assign to me");
+        assignJButton.setText("add new food");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 215, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
 
-        processJButton.setText("Process");
+        processJButton.setText("checkout");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 215, -1, -1));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, 40));
 
-        refreshJButton.setText("Refresh");
-        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshJButtonActionPerformed(evt);
+        jButton1.setText("add stock");
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 90, -1));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 40, -1));
+
+        jLabel1.setText("Foodstock:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "order no.", "customer", "total", "status"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 490, 120));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "name", "stock"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 26, -1, -1));
+        jScrollPane3.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setResizable(false);
+            jTable2.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 220, 100));
+
+        jButton2.setText("delete");
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 70, -1));
+
+        jButton3.setText("put off shelf");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+
+        jLabel2.setText("off shelf items:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+
+        jLabel3.setText("Checkout Counter:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
 
-        int selectedRow = workRequestJTable.getSelectedRow();
-        
-        if (selectedRow < 0){
-            return;
-        }
-        
-        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
-        request.setReceiver(userAccount);
-        request.setStatus("Pending");
-        populateTable();
-        
+//        int selectedRow = workRequestJTable.getSelectedRow();
+//        
+//        if (selectedRow < 0){
+//            return;
+//        }
+//        
+//        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
+//        request.setReceiver(userAccount);
+//        request.setStatus("Pending");
+//        populateTable();
+//String name = nameTextField.getText();
+//        
+//        Restaurant restaurant = ecosystem.getRestaurantDirectory().getRestaurantByName(account.getUsername());
+//        
+//        //useraccount
+//        restaurant.getMenuList().add(name);
+//        JOptionPane.showMessageDialog(null, "Menu created!");
+//        DB4OUtil.getInstance().storeSystem(ecosystem);
+//
+//        //reset textfield
+//        nameTextField.setText("");
+//        
     }//GEN-LAST:event_assignJButtonActionPerformed
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
         
         int selectedRow = workRequestJTable.getSelectedRow();
         
-        if (selectedRow < 0){
+        if (selectedRow < 0) {
             return;
         }
         
-        WorkRequest request = (WorkRequest)workRequestJTable.getValueAt(selectedRow, 0);
-     
+        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
+        
         request.setStatus("Processing");
         
         ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
         userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-        
+
     }//GEN-LAST:event_processJButtonActionPerformed
 
-    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+        
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select an line from table", "Warning", JOptionPane.WARNING_MESSAGE);
+            
+        }
+        
+        Food offfood = (Food) workRequestJTable.getValueAt(selectedRow, 0);
+        offfood.setStatus(false);
         populateTable();
-    }//GEN-LAST:event_refreshJButtonActionPerformed
+        
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton assignJButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton processJButton;
-    private javax.swing.JButton refreshJButton;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }
