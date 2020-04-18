@@ -7,6 +7,7 @@ package Business.Enterprise;
 
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import Business.UserAccount.UserAccount;
 
 /**
  *
@@ -62,4 +63,14 @@ public abstract class Enterprise extends Organization{
         organizationDirectory=new OrganizationDirectory();
         coopEnterpriseDirectory=new EnterpriseDirectory();
     }
+    
+        
+    public UserAccount getManagerUserAccount() {
+        for (UserAccount ua : getUserAccountDirectory().getUserAccountList()) {
+            if (ua.getRole().toString() == "Business.Role.ManagerRole") {
+                return ua;
+            }
+        }
+        return null;
+    } 
 }

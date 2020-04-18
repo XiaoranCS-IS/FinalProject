@@ -237,7 +237,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private void seekBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seekBtnActionPerformed
         // Find receive manager useraccount
         Enterprise receiveEnterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
-        UserAccount receiveAccount = getManagerUserAccount(receiveEnterprise);
+        UserAccount receiveAccount = receiveEnterprise.getManagerUserAccount();
         
         WorkRequest workRequest = new WorkRequest();
         workRequest.setMessage(enterprise.getEnterpriseType() + " Company: " + enterprise.getName());
@@ -249,14 +249,14 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         receiveAccount.getWorkQueue().getWorkRequestList().add(workRequest);
     }//GEN-LAST:event_seekBtnActionPerformed
     
-    private UserAccount getManagerUserAccount(Enterprise enterprise) {
-        for (UserAccount ua : enterprise.getUserAccountDirectory().getUserAccountList()) {
-            if (ua.getRole().toString() == "Business.Role.ManagerRole") {
-                return ua;
-            }
-        }
-        return null;
-    }
+//    private UserAccount getManagerUserAccount(Enterprise enterprise) {
+//        for (UserAccount ua : enterprise.getUserAccountDirectory().getUserAccountList()) {
+//            if (ua.getRole().toString() == "Business.Role.ManagerRole") {
+//                return ua;
+//            }
+//        }
+//        return null;
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton acceptBtn;
