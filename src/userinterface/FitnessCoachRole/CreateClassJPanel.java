@@ -9,6 +9,7 @@ import Business.Coachclass.CoachClassdirectory;
 import userinterface.ManagerRole.*;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
+import Business.Enterprise.FitnessCoEnterprise;
 import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
@@ -23,22 +24,20 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Administrator
  */
-public class CreateclassJPanel1 extends javax.swing.JPanel {
+public class CreateClassJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageUserAccountJPanel
      */
     private JPanel container;
-    private Enterprise enterprise;
-    private CoachClass cc;
-    private CoachClassdirectory ccd;
+    private FitnessCoEnterprise enterprise;
+    private UserAccount userAccount;
 
-    CreateclassJPanel1(JPanel userProcessContainer,UserAccount userAccount, CoachClassdirectory ccd) {
+    CreateClassJPanel(JPanel userProcessContainer,UserAccount userAccount, Enterprise enterprise) {
         initComponents();
         this.container = userProcessContainer;
-        this.ccd = ccd;
-        this.cc = new CoachClass();
-        cc.setCoach(userAccount.getUsername());
+        this.enterprise = (FitnessCoEnterprise) enterprise;
+        this.userAccount = userAccount;
 
 //        nameJTextField1.setEnabled(false);
         jLabel6.setText("Class By Coach:   " + userAccount.getUsername());
@@ -174,14 +173,15 @@ public class CreateclassJPanel1 extends javax.swing.JPanel {
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
 
+        CoachClass cc = new CoachClass();
         if (!(nameJTextField2.getText().equals("") || nameJTextField1.getText().equals(""))) {
             if (Integer.parseInt(nameJTextField1.getText()) < 200 && Integer.parseInt(nameJTextField1.getText()) > 0) {
                 cc.setClassname(nameJTextField2.getText());
                 cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
+                cc.setCoach(userAccount.getUsername());
 //        cc.setTime(time);
-
-
-                ccd.addCoachClass(cc.getClassname(), cc.getCoach(), cc.getCapacity(), cc.getTime());
+                userAccount.getClasslist().add(cc);
+                enterprise.getAllClassList().add(cc);
                 JOptionPane.showMessageDialog(null, "Class  created successfully !");
 
                 container.remove(this);

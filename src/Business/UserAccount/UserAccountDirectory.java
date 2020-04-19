@@ -49,4 +49,13 @@ public class UserAccountDirectory {
         }
         return true;
     }
+    
+    public UserAccount getUserAccountByName(String name) {
+        for (UserAccount u : userAccountList) {
+            System.out.println(u.getUsername());
+            if (u.getUsername().equals(name))
+                return u;
+        }
+        return null;
+    }
 }

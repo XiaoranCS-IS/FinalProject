@@ -148,8 +148,8 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageTherapistBtnActionPerformed
 
     private void manageClassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageClassBtnActionPerformed
-        ManageOrderJPanel manageOrderJPanel = new ManageOrderJPanel(userProcessContainer, userAccount);
-        userProcessContainer.add("manageOrderJPanel", manageOrderJPanel);
+        ManageCoachClassJPanel manageCoachClassJPanel = new ManageCoachClassJPanel(userProcessContainer, userAccount, enterprise, ecoSystem);
+        userProcessContainer.add("manageCoachClassJPanel", manageCoachClassJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageClassBtnActionPerformed

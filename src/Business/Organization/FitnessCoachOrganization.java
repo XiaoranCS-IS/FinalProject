@@ -15,11 +15,8 @@ import java.util.ArrayList;
  */
 public class FitnessCoachOrganization extends Organization {
 
-    private ArrayList<CoachClass> allclasslist;
-
     public FitnessCoachOrganization() {
         super(Organization.Type.FitnessCoach.getValue());
-        allclasslist= new ArrayList<CoachClass>();
     }
 
     @Override
