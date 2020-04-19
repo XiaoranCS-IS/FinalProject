@@ -4,6 +4,7 @@
  */
 package userinterface.ManagerRole;
 
+import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
@@ -19,14 +20,16 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
     private OrganizationDirectory directory;
     private JPanel userProcessContainer;
+    private Enterprise enterprise;
     
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageOrganizationJPanel(JPanel userProcessContainer,OrganizationDirectory directory) {
+    public ManageOrganizationJPanel(JPanel userProcessContainer, Enterprise enterprise, OrganizationDirectory directory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.directory = directory;
+        this.enterprise = enterprise;
         
         populateTable();
         populateCombo();
@@ -34,9 +37,15 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     
     private void populateCombo(){
         organizationJComboBox.removeAllItems();
-        for (Type type : Organization.Type.values()){
-            if (!type.getValue().equals(Type.Manager.getValue()))
-                organizationJComboBox.addItem(type);
+        if (enterprise.getEnterpriseType().toString() == "Fitness") {
+            organizationJComboBox.addItem(Type.FitnessCoach);
+            organizationJComboBox.addItem(Type.Customer);
+        }
+        else if (enterprise.getEnterpriseType().toString() == "Market") {
+            organizationJComboBox.addItem(Type.MarketCashier);
+        }
+        else if (enterprise.getEnterpriseType().toString() == "PhysicalTherapy") {
+            organizationJComboBox.addItem(Type.PhysicalTherapist);
         }
     }
 
