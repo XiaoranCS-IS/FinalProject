@@ -4,7 +4,7 @@ import Business.Coachclass.CoachClass;
 import Business.Coachclass.CoachClassdirectory;
 import Business.EcoSystem;
 import userinterface.ManagerRole.*;
-import userinterface.FitnessCoachRole.updateclassJPanel;
+import userinterface.FitnessCoachRole.UpdateclassJPanel;
 import Business.Enterprise.Enterprise;
 import Business.Organization.FitnessCoachOrganization;
 import Business.Organization.Organization;
@@ -19,25 +19,25 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
-public class coachWorkAreaJPanel extends javax.swing.JPanel {
+public class CoachWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem business;
+    private Enterprise enterprise;
     private UserAccount userAccount;
     private FitnessCoachOrganization labOrganization;
-    private CoachClassdirectory ccd;
 
     /**
      * Creates new form AdminWorkAreaJPanel
      */
-    public coachWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, EcoSystem business, CoachClassdirectory ccd) {
+    public CoachWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
+        this.enterprise = enterprise;
         this.labOrganization = (FitnessCoachOrganization) organization;
        
-        this.ccd = ccd;
         jLabel2.setText("Coach " + userAccount.getUsername() + ", welcome! ");
 
         populateTable();
@@ -49,7 +49,7 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (CoachClass coachclass : ccd.getCoachClasslist()) {
+        for (CoachClass coachclass : userAccount.getClasslist()) {
             Object[] row = new Object[4];
             row[0] = coachclass;
             row[1] = coachclass.getCapacity();
@@ -180,8 +180,8 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
 
         CoachClass coachclass = (CoachClass) workRequestJTable.getValueAt(selectedRow, 0);
 
-        updateclassJPanel uJPanel = new updateclassJPanel(userProcessContainer,coachclass, ccd);
-        userProcessContainer.add("updateeclassJPanel", uJPanel);
+        UpdateclassJPanel uJPanel = new UpdateclassJPanel(userProcessContainer, coachclass);
+        userProcessContainer.add("updateclassJPanel", uJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -189,7 +189,7 @@ public class coachWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CreateclassJPanel1 cJPanel = new CreateclassJPanel1(userProcessContainer,userAccount, ccd);
+        CreateClassJPanel cJPanel = new CreateClassJPanel(userProcessContainer,userAccount, enterprise);
         userProcessContainer.add("CreateclassJPanel1", cJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

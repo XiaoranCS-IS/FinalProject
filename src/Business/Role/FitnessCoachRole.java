@@ -13,7 +13,7 @@ import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import userinterface.MarketCashierRole.MarketCashierWorkAreaJPanel;
 import javax.swing.JPanel;
-import userinterface.FitnessCoachRole.coachWorkAreaJPanel;
+import userinterface.FitnessCoachRole.CoachWorkAreaJPanel;
 
 /**
  *
@@ -21,12 +21,9 @@ import userinterface.FitnessCoachRole.coachWorkAreaJPanel;
  */
 public class FitnessCoachRole extends Role {
 
-    private CoachClassdirectory ccd;
-
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
-        this.ccd=new CoachClassdirectory();
-        return new coachWorkAreaJPanel(userProcessContainer, account, organization, business,ccd);
+        return new CoachWorkAreaJPanel(userProcessContainer, account, organization, enterprise, business);
     }
 
 }

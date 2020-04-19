@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Administrator
  */
-public class updateclassJPanel extends javax.swing.JPanel {
+public class UpdateclassJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageUserAccountJPanel
@@ -30,13 +30,10 @@ public class updateclassJPanel extends javax.swing.JPanel {
     private JPanel container;
     private Enterprise enterprise;
     private CoachClass cc;
-    private CoachClassdirectory ccd;
     
-    updateclassJPanel(JPanel userProcessContainer,CoachClass cc, CoachClassdirectory ccd) {
+    UpdateclassJPanel(JPanel userProcessContainer,CoachClass cc) {
         initComponents();
         this.container = userProcessContainer;
-        this.ccd = ccd;
-        ccd.deleteCoachClass(cc);
         nameJTextField1.setEnabled(false);
         nameJTextField2.setEnabled(false);
         

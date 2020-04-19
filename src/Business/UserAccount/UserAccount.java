@@ -4,9 +4,11 @@
  */
 package Business.UserAccount;
 
+import Business.Coachclass.CoachClass;
 import Business.Employee.Employee;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,9 +21,11 @@ public class UserAccount {
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
+    private ArrayList<CoachClass> classlist;
 
     public UserAccount() {
         workQueue = new WorkQueue();
+        classlist = new ArrayList<CoachClass>();
     }
     
     
@@ -60,6 +64,14 @@ public class UserAccount {
 
     public WorkQueue getWorkQueue() {
         return workQueue;
+    }
+
+    public ArrayList<CoachClass> getClasslist() {
+        return classlist;
+    }
+
+    public void setClasslist(ArrayList<CoachClass> classlist) {
+        this.classlist = classlist;
     }
 
     
