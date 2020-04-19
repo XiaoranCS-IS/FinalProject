@@ -4,14 +4,11 @@
  */
 package userinterface.PhysicalTherapistRole;
 
-import userinterface.FitnessCoachRole.*;
-import userinterface.MarketCashierRole.*;
 import Business.EcoSystem;
-import Business.Organization.FitnessCoachOrganization;
 import Business.Organization.Organization;
+import Business.Organization.PhysicalTherapistOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
-import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -25,7 +22,7 @@ public class PhysicalTherapistWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem business;
     private UserAccount userAccount;
-    private FitnessCoachOrganization labOrganization;
+    private PhysicalTherapistOrganization labOrganization;
 
     /**
      * Creates new form LabAssistantWorkAreaJPanel
@@ -36,7 +33,7 @@ public class PhysicalTherapistWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.userAccount = account;
         this.business = business;
-        this.labOrganization = (FitnessCoachOrganization) organization;
+        this.labOrganization = (PhysicalTherapistOrganization) organization;
 
         populateTable();
         jLabel1.setText("Therapist " + userAccount.getUsername() + "'s order: ");
@@ -47,16 +44,14 @@ public class PhysicalTherapistWorkAreaJPanel extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (WorkRequest request : labOrganization.getWorkQueue().getWorkRequestList()) {
-            if (request.getMessage().equals(userAccount.getUsername())) {
-                Object[] row = new Object[4];
-                row[0] = request;
-                row[1] = request.getSender().getEmployee().getName();
-                row[2] = request.getReceiver() == null ? null : request.getReceiver().getEmployee().getName();
-                row[3] = request.getStatus();
+        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[4];
+            row[0] = request;
+            row[1] = request.getSender();
+            row[2] = request.getReceiver();
+            row[3] = request.getStatus();
 
-                model.addRow(row);
-            }
+            model.addRow(row);
         }
     }
 
@@ -144,7 +139,6 @@ public class PhysicalTherapistWorkAreaJPanel extends javax.swing.JPanel {
         }
 
         WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
-        request.setReceiver(userAccount);
         request.setStatus("finished");
         populateTable();
 
