@@ -135,6 +135,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,35 +171,39 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 330, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 350, 140));
 
+        assignJButton.setBackground(new java.awt.Color(255, 255, 255));
         assignJButton.setText("add new food");
         assignJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, 50));
 
+        processJButton.setBackground(new java.awt.Color(255, 255, 255));
         processJButton.setText("checkout");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, 40));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 510, -1, 60));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("add stock");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 90, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, 40, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, 100, 50));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 250, 70, 30));
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Foodstock:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -213,7 +218,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 490, 120));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 730, 140));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -247,37 +252,42 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             jTable2.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 220, 100));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 320, 140));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 70, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 80, 40));
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setText("put off shelf");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, 50));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("off shelf items:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Checkout Counter:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setText("refresh");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

@@ -82,15 +82,17 @@ public class CoachWorkAreaJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        manageEmployeeJButton.setBackground(new java.awt.Color(255, 255, 255));
         manageEmployeeJButton.setText("Go to Class");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 150, 60));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 480, 150, 60));
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,35 +122,38 @@ public class CoachWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 480, 260));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 760, 350));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Coach xxx, welcome! ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
+        manageEmployeeJButton1.setBackground(new java.awt.Color(255, 255, 255));
         manageEmployeeJButton1.setText("Reschedule Class");
         manageEmployeeJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButton1ActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 150, 40));
+        add(manageEmployeeJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 150, 40));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Create New Class");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 150, 40));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 150, 40));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("refresh");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 80, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed

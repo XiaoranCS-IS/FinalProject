@@ -11,6 +11,10 @@ import Business.Organization.CustomerOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +22,9 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author raunak
  */
+
+
+
 public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
@@ -54,76 +61,60 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         manageFoodBtn = new javax.swing.JButton();
         manageOrderBtn = new javax.swing.JButton();
         manageTherapistBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(111, 158, 159));
+        setPreferredSize(new java.awt.Dimension(963, 600));
+        setSize(new java.awt.Dimension(963, 600));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("EnterPrise :");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 127, 30));
 
         valueLabel.setText("<value>");
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 158, 26));
 
-        manageClassBtn.setText("Your classes");
+        manageClassBtn.setBackground(new java.awt.Color(255, 255, 255));
+        manageClassBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        manageClassBtn.setText("My Fitness Classes");
         manageClassBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageClassBtnActionPerformed(evt);
             }
         });
+        add(manageClassBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 240, 110));
 
+        manageFoodBtn.setBackground(new java.awt.Color(255, 255, 255));
+        manageFoodBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         manageFoodBtn.setText("Buy foods");
         manageFoodBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageFoodBtnActionPerformed(evt);
             }
         });
+        add(manageFoodBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 176, 70));
 
-        manageOrderBtn.setText("Your orders");
+        manageOrderBtn.setBackground(new java.awt.Color(255, 255, 255));
+        manageOrderBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        manageOrderBtn.setText("My Orders");
         manageOrderBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrderBtnActionPerformed(evt);
             }
         });
+        add(manageOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 200, 90));
 
-        manageTherapistBtn.setText("Schedule therapist");
+        manageTherapistBtn.setBackground(new java.awt.Color(255, 255, 255));
+        manageTherapistBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        manageTherapistBtn.setText("Schedule Therapist");
         manageTherapistBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageTherapistBtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(168, Short.MAX_VALUE)
-                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(164, 164, 164))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(224, 224, 224)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(manageClassBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageFoodBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageOrderBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(manageTherapistBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(manageClassBtn)
-                .addGap(18, 18, 18)
-                .addComponent(manageFoodBtn)
-                .addGap(18, 18, 18)
-                .addComponent(manageTherapistBtn)
-                .addGap(18, 18, 18)
-                .addComponent(manageOrderBtn)
-                .addContainerGap(137, Short.MAX_VALUE))
-        );
+        add(manageTherapistBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 176, 70));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 362, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageFoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageFoodBtnActionPerformed
@@ -156,6 +147,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageClassBtn;
     private javax.swing.JButton manageFoodBtn;
     private javax.swing.JButton manageOrderBtn;

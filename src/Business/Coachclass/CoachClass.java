@@ -7,7 +7,6 @@ package Business.Coachclass;
 
 import Business.Role.CustomerRole;
 import Business.Role.FitnessCoachRole;
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
 import java.util.ArrayList;
 import java.util.Date;
 
