@@ -92,8 +92,6 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
         enterpriseJComboBox = new javax.swing.JComboBox();
         submitJButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        nameJTextField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         passwordJPasswordField = new javax.swing.JPasswordField();
         backJButton = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
@@ -162,13 +160,8 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Password");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 420, 136, -1));
-
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel5.setText("Name");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
-        add(passwordJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 134, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, -1, -1));
+        add(passwordJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 134, -1));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
@@ -204,12 +197,11 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
 
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
-        String name = nameJTextField.getText();
-        if (!(nameJTextField.getText().equals("") || passwordJPasswordField.getText().equals(""))) {
+        if (!(usernameJTextField.getText().equals("") || passwordJPasswordField.getText().equals(""))) {
 
             Network network = system.createAndAddNetwork();
-            network.setName(name);
-            Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
+            network.setName(usernameJTextField.getText());
+            Employee employee = enterprise.getEmployeeDirectory().createEmployee(usernameJTextField.getText());
 
             UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new ManagerRole());
             populateTable();
@@ -259,9 +251,7 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;
     private javax.swing.JPasswordField passwordJPasswordField;
     private javax.swing.JButton submitJButton;

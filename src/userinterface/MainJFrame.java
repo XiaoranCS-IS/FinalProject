@@ -11,8 +11,12 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Color;
+import static java.awt.Color.red;
+import static java.awt.Color.white;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -31,6 +35,8 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
         logoutJButton.setVisible(false);
+        userNameJTextField.setBorder(new LineBorder(Color.white, 1));
+        passwordField.setBorder(new LineBorder(Color.white, 1));
 
     }
 
@@ -165,7 +171,17 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        // Get user name
+        if (passwordField.getText().isEmpty()) {
+            userNameJTextField.setBorder(new LineBorder(Color.red, 1));
+
+            passwordField.setBorder(new LineBorder(Color.red, 1));
+            jLabel1.setForeground(red);
+            jLabel2.setForeground(red);
+            JOptionPane.showMessageDialog(null, "Please enter your password and name!");
+            return;
+        }
+// Get user name
+
         String userName = userNameJTextField.getText();
         // Get Password
         char[] passwordCharArray = passwordField.getPassword();
@@ -213,6 +229,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         if (userAccount == null) {
             JOptionPane.showMessageDialog(null, "Invalid credentials");
+            userNameJTextField.setBorder(new LineBorder(Color.red, 1));
+            passwordField.setBorder(new LineBorder(Color.red, 1));
+            jLabel1.setForeground(red);
+            jLabel2.setForeground(red);
+
             return;
         } else {
             CardLayout layout = (CardLayout) container.getLayout();
@@ -224,6 +245,11 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton.setEnabled(true);
         userNameJTextField.setEnabled(false);
         passwordField.setEnabled(false);
+
+        userNameJTextField.setBorder(new LineBorder(Color.white, 1));
+        passwordField.setBorder(new LineBorder(Color.white, 1));
+        jLabel1.setForeground(white);
+        jLabel2.setForeground(white);
 
         jLabel1.setVisible(false);
         jLabel2.setVisible(false);
@@ -256,6 +282,8 @@ public class MainJFrame extends javax.swing.JFrame {
         container.add("blank", blankJP);
 
         blankJP.add(this.jLabel3);
+        Color c = new Color(111, 158, 159);
+        blankJP.setBackground(c);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(system);
