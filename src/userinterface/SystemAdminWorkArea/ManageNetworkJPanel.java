@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.Network.Network;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -39,7 +40,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             Object[] row = new Object[1];
-            row[0] = network.getName();
+            row[0] = network;
             model.addRow(row);
         }
     }
@@ -59,6 +60,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         submitJButton = new javax.swing.JButton();
         nameJTextField = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
+        DeleteBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -98,7 +100,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         submitJButton.setBackground(new java.awt.Color(255, 255, 255));
         submitJButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -109,7 +111,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
         add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 110, 60));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 130, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 130, -1));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
@@ -119,21 +121,36 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, 50));
+
+        DeleteBtn.setBackground(new java.awt.Color(255, 255, 255));
+        DeleteBtn.setText("Delete");
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteBtnActionPerformed(evt);
+            }
+        });
+        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
 
-        String name = nameJTextField.getText();
+        if (!nameJTextField.getText().equals("")) {
+            String name = nameJTextField.getText();
 
-        Network network = system.createAndAddNetwork();
-        network.setName(name);
+            Network network = system.createAndAddNetwork();
+            network.setName(name);
+            JOptionPane.showMessageDialog(null, "Created successfully !");
+            nameJTextField.setText("");
+            populateNetworkTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please fill all items !", "Warning", JOptionPane.WARNING_MESSAGE);
 
-        populateNetworkTable();
+        }
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
         userProcessContainer.remove(this);
-         Component[] componentArray = userProcessContainer.getComponents();
+        Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
         sysAdminwjp.populateTree();
@@ -141,7 +158,25 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRow = networkJTable.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a  line from table", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            Network n = (Network) networkJTable.getValueAt(selectedRow, 0);
+
+            system.getNetworkList().remove(n);
+
+            JOptionPane.showMessageDialog(null, "Network  deleted!");
+            populateNetworkTable();
+        }
+    }//GEN-LAST:event_DeleteBtnActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

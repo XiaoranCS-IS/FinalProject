@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -13,11 +13,12 @@ import Business.UserAccount.UserAccount;
  *
  * @author MyPC1
  */
-public abstract class Enterprise extends Organization{
-    
+public abstract class Enterprise extends Organization {
+
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
-    private EnterpriseDirectory coopEnterpriseDirectory; 
+    private EnterpriseDirectory coopEnterpriseDirectory;
+    private String ename;
 
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
@@ -26,27 +27,26 @@ public abstract class Enterprise extends Organization{
     public EnterpriseDirectory getCoopEnterpriseDirectory() {
         return coopEnterpriseDirectory;
     }
-    
-    
-    
-    public enum EnterpriseType{
+
+    public enum EnterpriseType {
         Fitness("Fitness"),
         Market("Market"),
         PhysicalTherapy("PhysicalTherapy");
-        
-        
+
         private String value;
-        
-        private EnterpriseType(String value){
-            this.value=value;
+
+        private EnterpriseType(String value) {
+            this.value = value;
         }
+
         public String getValue() {
             return value;
         }
+
         @Override
-        public String toString(){
-        return value;
-    }
+        public String toString() {
+            return value;
+        }
     }
 
     public EnterpriseType getEnterpriseType() {
@@ -56,15 +56,20 @@ public abstract class Enterprise extends Organization{
     public void setEnterpriseType(EnterpriseType enterpriseType) {
         this.enterpriseType = enterpriseType;
     }
-    
-    public Enterprise(String name,EnterpriseType type){
+
+    public Enterprise(String name, EnterpriseType type) {
         super(name);
-        this.enterpriseType=type;
-        organizationDirectory=new OrganizationDirectory();
-        coopEnterpriseDirectory=new EnterpriseDirectory();
+        this.enterpriseType = type;
+//        this.ename = name;
+        organizationDirectory = new OrganizationDirectory();
+        coopEnterpriseDirectory = new EnterpriseDirectory();
     }
-    
-        
+
+//    @Override
+//    public String toString() {
+//        return ename;
+//    }
+
     public UserAccount getManagerUserAccount() {
         for (UserAccount ua : getUserAccountDirectory().getUserAccountList()) {
             if (ua.getRole().toString() == "Business.Role.ManagerRole") {
@@ -72,5 +77,5 @@ public abstract class Enterprise extends Organization{
             }
         }
         return null;
-    } 
+    }
 }
