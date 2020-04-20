@@ -96,31 +96,45 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         jScrollPane4 = new javax.swing.JScrollPane();
         classJTable = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(111, 158, 159));
+        setPreferredSize(new java.awt.Dimension(963, 600));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 517, -1, 50));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Manage Class");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Class List");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
+        selectBtn.setBackground(new java.awt.Color(255, 255, 255));
         selectBtn.setText("Select");
         selectBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectBtnActionPerformed(evt);
             }
         });
+        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 98, 50));
 
+        deleteBtn.setBackground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("Delete");
         deleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBtnActionPerformed(evt);
             }
         });
+        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 440, 97, 50));
 
         yourClassJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -147,7 +161,11 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(yourClassJTable);
 
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 380, 270));
+
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel6.setText("Your Class");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
 
         classJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -177,62 +195,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(classJTable);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(190, 190, 190))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(179, 179, 179)
-                                .addComponent(selectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(backJButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(jLabel3)))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel3)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectBtn)
-                    .addComponent(deleteBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(backJButton)
-                .addGap(33, 33, 33))
-        );
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 420, 270));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
