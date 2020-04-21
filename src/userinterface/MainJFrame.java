@@ -86,6 +86,10 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        userNameJTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        passwordField.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("User Name");
