@@ -45,7 +45,6 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
-        this.setSize(1680, 1050);
         logoutJButton.setVisible(false);
         userNameJTextField.setBorder(new LineBorder(Color.white, 1));
         passwordField.setBorder(new LineBorder(Color.white, 1));
