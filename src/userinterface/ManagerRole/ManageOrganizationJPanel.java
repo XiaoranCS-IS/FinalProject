@@ -37,15 +37,15 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     
     private void populateCombo(){
         organizationJComboBox.removeAllItems();
-        System.out.println(enterprise.getEnterpriseType().toString());
-        if (enterprise.getEnterpriseType().toString() == "Fitness") {
+        System.out.println(enterprise.getEnterpriseType().toString() + "");
+        if (enterprise.getEnterpriseType().toString().equals("Fitness")) {
             organizationJComboBox.addItem(Type.FitnessCoach);
             organizationJComboBox.addItem(Type.Customer);
         }
-        else if (enterprise.getEnterpriseType().toString() == "Market") {
+        else if (enterprise.getEnterpriseType().toString().equals("Market")) {
             organizationJComboBox.addItem(Type.MarketCashier);
         }
-        else if (enterprise.getEnterpriseType().toString() == "PhysicalTherapy") {
+        else if (enterprise.getEnterpriseType().toString().equals("PhysicalTherapy")) {
             organizationJComboBox.addItem(Type.PhysicalTherapist);
         }
     }

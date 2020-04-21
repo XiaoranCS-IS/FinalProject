@@ -46,7 +46,7 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserAccountList()) {
                     Object[] row = new Object[3];
-                    row[0] = enterprise.getName();
+                    row[0] = enterprise;
                     row[1] = network;
                     row[2] = userAccount.getUsername();
 
@@ -193,8 +193,10 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_networkJComboBoxActionPerformed
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
+        Network network = (Network) networkJComboBox.getSelectedItem();
         Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
 
+        System.out.println(network + " " + enterprise);
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         if (!(usernameJTextField.getText().equals("") || passwordJPasswordField.getText().equals(""))) {
