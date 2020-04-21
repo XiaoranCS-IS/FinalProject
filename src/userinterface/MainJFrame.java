@@ -62,6 +62,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1163, 605));
+        setPreferredSize(new java.awt.Dimension(1163, 605));
         setSize(new java.awt.Dimension(1163, 604));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -85,10 +87,6 @@ public class MainJFrame extends javax.swing.JFrame {
                 loginJButtonActionPerformed(evt);
             }
         });
-
-        userNameJTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-
-        passwordField.setFont(new java.awt.Font("Lucida Grande", 0, 16)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
