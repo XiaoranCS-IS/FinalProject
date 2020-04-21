@@ -65,7 +65,6 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(111, 158, 159));
         setPreferredSize(new java.awt.Dimension(963, 600));
-        setSize(new java.awt.Dimension(963, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
