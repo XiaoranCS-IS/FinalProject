@@ -37,6 +37,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     
     private void populateCombo(){
         organizationJComboBox.removeAllItems();
+        System.out.println(enterprise.getEnterpriseType().toString());
         if (enterprise.getEnterpriseType().toString() == "Fitness") {
             organizationJComboBox.addItem(Type.FitnessCoach);
             organizationJComboBox.addItem(Type.Customer);
@@ -126,6 +127,11 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
         organizationJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        organizationJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                organizationJComboBoxActionPerformed(evt);
+            }
+        });
         add(organizationJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, 170, -1));
 
         jLabel1.setText("Organization Type ");
@@ -154,6 +160,10 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
+
+    private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_organizationJComboBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addJButton;

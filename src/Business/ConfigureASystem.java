@@ -23,11 +23,9 @@ public class ConfigureASystem {
         
         
         Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
-                Employee RR = system.getEmployeeDirectory().createEmployee("RR");
 
         
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
-        UserAccount c = system.getUserAccountDirectory().createUserAccount("coach", "coach", RR, new FitnessCoachRole());
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", "434353173@qq.com", employee, new SystemAdminRole());
         return system;
     }
     
