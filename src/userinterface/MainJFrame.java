@@ -18,6 +18,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+        
+import java.util.Properties; 
+ 
+import javax.mail.Address; 
+import javax.mail.Message; 
+import javax.mail.MessagingException; 
+import javax.mail.Session; 
+import javax.mail.Transport; 
+import javax.mail.internet.InternetAddress; 
+import javax.mail.internet.MimeMessage; 
+
 /**
  *
  * @author Lingfeng
@@ -29,6 +40,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private int verifyCode;
 
     public MainJFrame() {
         initComponents();
@@ -37,8 +49,9 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton.setVisible(false);
         userNameJTextField.setBorder(new LineBorder(Color.white, 1));
         passwordField.setBorder(new LineBorder(Color.white, 1));
-
+        verifyCodeField.setBorder(new LineBorder(Color.white, 1));
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,6 +71,8 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         loginJLabel = new javax.swing.JLabel();
         logoutJButton = new javax.swing.JButton();
+        verifyCodeLabel = new javax.swing.JLabel();
+        verifyCodeField = new javax.swing.JTextField();
         container = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -108,6 +123,11 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        verifyCodeLabel.setBackground(new java.awt.Color(255, 255, 255));
+        verifyCodeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        verifyCodeLabel.setForeground(new java.awt.Color(255, 255, 255));
+        verifyCodeLabel.setText("Verify Code");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,12 +136,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(userNameJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(passwordField))
+                    .addComponent(passwordField)
+                    .addComponent(verifyCodeField, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
+                        .addGap(165, 165, 165)
                         .addComponent(loginJLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
@@ -135,6 +156,10 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(verifyCodeLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,13 +172,17 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(loginJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(verifyCodeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(verifyCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -182,8 +211,8 @@ public class MainJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter your password and name!");
             return;
         }
-// Get user name
-
+        
+        // Get user name
         String userName = userNameJTextField.getText();
         // Get Password
         char[] passwordCharArray = passwordField.getPassword();
@@ -228,6 +257,20 @@ public class MainJFrame extends javax.swing.JFrame {
                 }
             }
         }
+        //sysadmin account
+        else {
+            if (verifyCodeField.getText().isEmpty()) {
+                sendVerifyMail(userAccount);
+                JOptionPane.showMessageDialog(null, "The verification code has been sent to your email!");
+                return;
+            }
+            else if (!verifyCodeField.getText().equals(Integer.toString(verifyCode))) {
+                JOptionPane.showMessageDialog(null, "VerifyCode Error!");
+                verifyCodeField.setBorder(new LineBorder(Color.red, 1));
+                verifyCodeLabel.setForeground(red);
+                return;
+            }
+        }
 
         if (userAccount == null) {
             JOptionPane.showMessageDialog(null, "Invalid credentials");
@@ -247,17 +290,22 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton.setEnabled(true);
         userNameJTextField.setEnabled(false);
         passwordField.setEnabled(false);
+        verifyCodeField.setEnabled(false);
 
         userNameJTextField.setBorder(new LineBorder(Color.white, 1));
         passwordField.setBorder(new LineBorder(Color.white, 1));
+        verifyCodeField.setBorder(new LineBorder(Color.white, 1));
         jLabel1.setForeground(white);
         jLabel2.setForeground(white);
+        verifyCodeLabel.setForeground(white);
 
         jLabel1.setVisible(false);
         jLabel2.setVisible(false);
+        verifyCodeLabel.setVisible(false);
         loginJButton.setVisible(false);
         userNameJTextField.setVisible(false);
         passwordField.setVisible(false);
+        verifyCodeField.setVisible(false);
         logoutJButton.setVisible(true);
 
 
@@ -267,17 +315,21 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton.setEnabled(false);
         userNameJTextField.setEnabled(true);
         passwordField.setEnabled(true);
+        verifyCodeField.setVisible(true);
         loginJButton.setEnabled(true);
 
         loginJButton.setVisible(true);
         userNameJTextField.setVisible(true);
         passwordField.setVisible(true);
+        verifyCodeField.setVisible(true);
         jLabel1.setVisible(true);
         jLabel2.setVisible(true);
+        verifyCodeLabel.setVisible(true);
         logoutJButton.setVisible(false);
 
         userNameJTextField.setText("");
         passwordField.setText("");
+        verifyCodeField.setText("");
 
         container.removeAll();
         JPanel blankJP = new JPanel();
@@ -291,6 +343,46 @@ public class MainJFrame extends javax.swing.JFrame {
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_logoutJButtonActionPerformed
 
+    public void sendVerifyMail(UserAccount userAccount) {
+
+        try {
+            Properties props = new Properties();
+
+            // 开启debug调试
+            props.setProperty("mail.debug", "true");
+            // 发送服务器需要身份验证
+            props.setProperty("mail.smtp.auth", "true");
+            // 设置邮件服务器主机名
+            props.setProperty("mail.host", "smtp.163.com");
+            // 发送邮件协议名称
+            props.setProperty("mail.transport.protocol", "smtp");
+
+            Session session = Session.getInstance(props);
+            
+            //邮件内容部分
+            Message msg = new MimeMessage(session);
+            msg.addRecipients(Message.RecipientType.CC,InternetAddress.parse("lxrtsq@163.com"));
+            msg.addRecipients(Message.RecipientType.TO, InternetAddress.parse(userAccount.getMail()));
+            msg.setSubject("Whole gyms verify code");
+            int randomCode = (int) ((Math.random()*9+1)*1000);
+            //save code
+            verifyCode = randomCode;
+            msg.setText("Your verify code is: " + Integer.toString(randomCode));
+            //邮件发送者
+            msg.setFrom(new InternetAddress("lxrtsq@163.com"));
+
+            //发送邮件
+            Transport transport = session.getTransport();
+            transport.connect("smtp.163.com", "lxrtsq@163.com", "GXBKLTGGNHYWEWDS");
+
+            transport.sendMessage(msg, msg.getAllRecipients());
+            transport.close();
+
+        } catch (MessagingException e) {
+             System.err.println("邮件发送失败！" + e);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -317,7 +409,12 @@ public class MainJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        
+       
 
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -337,5 +434,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton logoutJButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userNameJTextField;
+    private javax.swing.JTextField verifyCodeField;
+    private javax.swing.JLabel verifyCodeLabel;
     // End of variables declaration//GEN-END:variables
 }

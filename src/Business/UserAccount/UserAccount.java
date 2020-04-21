@@ -18,6 +18,15 @@ public class UserAccount {
     
     private String username;
     private String password;
+    private String mail;
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
