@@ -45,6 +45,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         system = dB4OUtil.retrieveSystem();
+        this.setSize(1163, 604);
         logoutJButton.setVisible(false);
         userNameJTextField.setBorder(new LineBorder(Color.white, 1));
         passwordField.setBorder(new LineBorder(Color.white, 1));
@@ -77,7 +78,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1163, 605));
-        setPreferredSize(new java.awt.Dimension(1163, 605));
         setSize(new java.awt.Dimension(1163, 604));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
