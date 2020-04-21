@@ -19,7 +19,7 @@ public class CoachClass {
     private String coach;
     private int capacity;
     private int perticipants;
-    private Date time;
+    private String time;
     private ArrayList<CustomerRole> attendsheet;
 
     
@@ -65,11 +65,11 @@ public class CoachClass {
         this.perticipants = perticipants;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

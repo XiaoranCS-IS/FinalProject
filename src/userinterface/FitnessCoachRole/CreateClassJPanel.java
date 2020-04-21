@@ -15,6 +15,8 @@ import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -41,6 +43,37 @@ public class CreateClassJPanel extends javax.swing.JPanel {
 
 //        nameJTextField1.setEnabled(false);
         jLabel6.setText("Class By Coach:   " + userAccount.getUsername());
+        
+        SimpleDateFormat sdf = new SimpleDateFormat();// Format time
+        sdf.applyPattern("yyyy-MM");
+        Date date = new Date();// get current time
+        String yearMonth = sdf.format(date);
+        sdf.applyPattern("dd");
+        String day = sdf.format(date);
+        int dayi = Integer.parseInt(day);
+        for (int i = 0; i < 10; i++) {
+            if (dayi < 10) {
+                day = "0" + String.valueOf(dayi);
+            } else {
+                day = String.valueOf(dayi);
+            }
+            this.roleJComboBox.addItem(yearMonth + "-" + day);
+            dayi++;
+        } 
+//        if (!this.r.getType().equals("all")) {
+//            this.jTextField2.setText(rr.getType());
+//            this.jTextField2.setEnabled(false);
+//        }
+//        if (!this.r.getDate().equals("all")) {
+//            this.jComboBox1.setSelectedItem((String)rr.getDate());
+//            this.jComboBox1.setEnabled(false);
+//
+//        }
+//        for (HotelSupplier h : TESystem.getDatabase().getUsers().getHotelSupplierDirectory()) {
+//            if (h.getName().equals(this.u.getName())) {
+//                this.hu = h;
+//            }
+//        }
 
 //        roleJComboBox.addItem(cc.getTime());
 //        nameJTextField2.setText(cc.getClassname());
@@ -101,7 +134,6 @@ public class CreateClassJPanel extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 328, -1, -1));
 
         roleJComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roleJComboBoxActionPerformed(evt);
@@ -136,7 +168,7 @@ public class CreateClassJPanel extends javax.swing.JPanel {
                 cc.setClassname(nameJTextField2.getText());
                 cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
                 cc.setCoach(userAccount.getUsername());
-//        cc.setTime(time);
+        cc.setTime(roleJComboBox.getSelectedItem().toString());
                 userAccount.getClasslist().add(cc);
                 enterprise.getAllClassList().add(cc);
                 JOptionPane.showMessageDialog(null, "Class  created successfully !");

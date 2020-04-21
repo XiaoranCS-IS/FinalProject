@@ -23,14 +23,14 @@ public class FitnessCoEnterprise extends Enterprise {
         super(name,EnterpriseType.Fitness);
         allclasslist= new ArrayList<CoachClass>();
         
-        CoachClass yoga=new CoachClass();
-        yoga.setClassname("yoga");
-        yoga.setCapacity(10);
-        yoga.setPerticipants(2);
-        yoga.setTime(new Date());
-        yoga.setCoach("lyc");
-        
-        allclasslist.add(yoga);
+//        CoachClass yoga=new CoachClass();
+//        yoga.setClassname("yoga");
+//        yoga.setCapacity(10);
+//        yoga.setPerticipants(2);
+//        yoga.setTime("");
+//        yoga.setCoach("lyc");
+//        
+//        allclasslist.add(yoga);
         
     }
     
