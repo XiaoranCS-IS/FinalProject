@@ -41,6 +41,24 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         
         populateTable();
         populateCombo();
+        populateBtn();
+    }
+    
+    private void populateBtn(){
+         if (enterprise.getEnterpriseType().toString().equals("Fitness")) {
+            seekBtn.setVisible(false);
+            acceptBtn.setVisible(true);
+            enterpriseJComboBox.setVisible(false);
+            jLabel1.setVisible(false);
+        }
+        else if (enterprise.getEnterpriseType().toString().equals("Market")) {
+            seekBtn.setVisible(true);
+            acceptBtn.setVisible(false);
+        }
+        else if (enterprise.getEnterpriseType().toString().equals("PhysicalTherapy")) {
+            seekBtn.setVisible(true);
+            acceptBtn.setVisible(false);
+        }
     }
     
     private void populateCombo(){
@@ -48,7 +66,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         
         for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()){
             //show other type enterprise
-            if (!e.getEnterpriseType().equals(this.enterprise.getEnterpriseType())){
+            if (e.getEnterpriseType().toString().equals("Fitness")){
                 enterpriseJComboBox.addItem(e);
             }
         }
@@ -215,7 +233,10 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         workRequest.setRequestDate(new Date());
         workRequest.setStatus("Asking");
         
+        userAccount.getWorkQueue().getWorkRequestList().add(workRequest);
         receiveAccount.getWorkQueue().getWorkRequestList().add(workRequest);
+        JOptionPane.showMessageDialog(null, "Seek Cooperation request send!");
+        populateTable();
     }//GEN-LAST:event_seekBtnActionPerformed
     
 //    private UserAccount getManagerUserAccount(Enterprise enterprise) {
