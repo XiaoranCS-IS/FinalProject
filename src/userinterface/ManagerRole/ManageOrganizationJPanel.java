@@ -155,8 +155,14 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
         Type type = (Type) organizationJComboBox.getSelectedItem();
+        for (Organization organization: directory.getOrganizationList()) {
+            if (organization.getName().equals(type.getValue())) {
+                JOptionPane.showMessageDialog(null, "Organization already existed!");
+                return;
+            }
+        }
         directory.createOrganization(type);
-                                JOptionPane.showMessageDialog(null, "Organization added successfully !");
+        JOptionPane.showMessageDialog(null, "Organization added successfully !");
 
         populateTable();
     }//GEN-LAST:event_addJButtonActionPerformed

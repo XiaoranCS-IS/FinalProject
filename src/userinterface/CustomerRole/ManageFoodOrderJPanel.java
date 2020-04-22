@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.MarketCoEnterprise;
 import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import Business.foods.Food;
@@ -263,15 +264,20 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         for (int i = 0; i < dtmOrder.getRowCount(); i++) {
             message += " " + dtmOrder.getValueAt(i, 0).toString() + "*" + dtmOrder.getValueAt(i, 1).toString();
         }
-        UserAccount receiveAccount = marketEnterprise.getOrganizationDirectory().getOrganizationList().get(0).getUserAccountDirectory().getUserAccountList().get(0);
+        
         WorkRequest orderRequest = new WorkRequest();
         orderRequest.setMessage(message);
-        orderRequest.setReceiver(receiveAccount);
+        orderRequest.setReceiver(marketEnterprise.getManagerUserAccount());
         orderRequest.setSender(userAccount);
         orderRequest.setStatus("waiting");
-        orderRequest.setRequestDate(new Date());
 
-        receiveAccount.getWorkQueue().getWorkRequestList().add(orderRequest);
+        for (Organization org : marketEnterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                orderRequest.setRequestDate(new Date());
+                ua.getWorkQueue().getWorkRequestList().add(orderRequest);
+            }
+        }
+
         userAccount.getWorkQueue().getWorkRequestList().add(orderRequest);
         JOptionPane.showMessageDialog(null, "Product ordered!");
         dtmOrder.setRowCount(0);
