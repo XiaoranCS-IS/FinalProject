@@ -200,8 +200,6 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         if (!(usernameJTextField.getText().equals("") || passwordJPasswordField.getText().equals(""))) {
-
-
             Employee employee = enterprise.getEmployeeDirectory().createEmployee(usernameJTextField.getText());
 
             UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, null, employee, new ManagerRole());
