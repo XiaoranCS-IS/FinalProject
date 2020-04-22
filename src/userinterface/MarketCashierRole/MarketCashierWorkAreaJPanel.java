@@ -85,14 +85,6 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
 
         }
 
-//        if (ecosystem.getRestaurantDirectory().getRestaurantList().size() > 0) {
-//            for (Restaurant r : ecosystem.getRestaurantDirectory().getRestaurantList()) {
-//                Object[] row = new Object[dtmRes.getColumnCount()];
-//                row[0] = r;
-////                row[1]=r.getPhone();
-//                dtmRes.addRow(row);
-//            }
-//        }
         //orders table
         DefaultTableModel dtmOrders = (DefaultTableModel) jTable1.getModel();
         dtmOrders.setRowCount(0);
@@ -301,19 +293,27 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
 
-        int selectedRow = workRequestJTable.getSelectedRow();
+        int selectedRow = jTable1.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(null, "Please select an line from table", "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
-            WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
+            WorkRequest request = (WorkRequest) jTable1.getValueAt(selectedRow, 0);
 
-            request.setStatus("Processing");
+            if (request.getStatus().equals("order-checked")) {
+                JOptionPane.showMessageDialog(null, "Order already checked out !", "Warning", JOptionPane.WARNING_MESSAGE);
 
-            ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
-            userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
-            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            } else {
+                request.setStatus("order-checked");
+                populateTable();
+                                DB4OUtil.getInstance().storeSystem(business);
+
+            }
+
+//            ProcessWorkRequestJPanel processWorkRequestJPanel = new ProcessWorkRequestJPanel(userProcessContainer, request);
+//            userProcessContainer.add("processWorkRequestJPanel", processWorkRequestJPanel);
+//            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//            layout.next(userProcessContainer);
         }
 
 
@@ -331,6 +331,8 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             offfood.setStatus(false);
             populateTable();
         }
+                DB4OUtil.getInstance().storeSystem(business);
+
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -382,6 +384,8 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             }
         }
         jTextField1.setText("");
+                        DB4OUtil.getInstance().storeSystem(business);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

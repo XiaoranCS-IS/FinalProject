@@ -70,6 +70,7 @@ public class ManageFoodJPanel extends javax.swing.JPanel {
         marketJTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         selectBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,11 +117,11 @@ public class ManageFoodJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(marketJTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 290, 200));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 200, 130));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel3.setText("Market List");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
 
         selectBtn.setBackground(new java.awt.Color(255, 255, 255));
         selectBtn.setText("Select");
@@ -129,7 +130,10 @@ public class ManageFoodJPanel extends javax.swing.JPanel {
                 selectBtnActionPerformed(evt);
             }
         });
-        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 420, 98, 60));
+        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 98, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/超市.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -159,6 +163,7 @@ public class ManageFoodJPanel extends javax.swing.JPanel {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable marketJTable;

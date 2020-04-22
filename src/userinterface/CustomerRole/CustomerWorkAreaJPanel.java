@@ -62,6 +62,9 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         manageOrderBtn = new javax.swing.JButton();
         manageTherapistBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setPreferredSize(new java.awt.Dimension(963, 600));
@@ -83,7 +86,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 manageClassBtnActionPerformed(evt);
             }
         });
-        add(manageClassBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 240, 110));
+        add(manageClassBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 200, 70));
 
         manageFoodBtn.setBackground(new java.awt.Color(255, 255, 255));
         manageFoodBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -93,7 +96,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 manageFoodBtnActionPerformed(evt);
             }
         });
-        add(manageFoodBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 176, 70));
+        add(manageFoodBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 176, 70));
 
         manageOrderBtn.setBackground(new java.awt.Color(255, 255, 255));
         manageOrderBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -103,7 +106,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrderBtnActionPerformed(evt);
             }
         });
-        add(manageOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 200, 90));
+        add(manageOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, 180, 50));
 
         manageTherapistBtn.setBackground(new java.awt.Color(255, 255, 255));
         manageTherapistBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -113,13 +116,22 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 manageTherapistBtnActionPerformed(evt);
             }
         });
-        add(manageTherapistBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 176, 70));
+        add(manageTherapistBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 190, 70));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 362, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/食物-35.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 210, 190));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/健身房.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/推拿.png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 220, 200));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageFoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageFoodBtnActionPerformed
         ManageFoodJPanel manageFoodJPanel = new ManageFoodJPanel(userProcessContainer, userAccount, enterprise, ecoSystem);
-        userProcessContainer.add("manageFoodJPanel", manageFoodJPanel);
+        userProcessContainer.add("ManageFoodJPanel", manageFoodJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageFoodBtnActionPerformed
@@ -148,6 +160,9 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton manageClassBtn;
     private javax.swing.JButton manageFoodBtn;
     private javax.swing.JButton manageOrderBtn;

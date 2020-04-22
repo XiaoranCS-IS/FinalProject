@@ -116,7 +116,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Class List");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         selectBtn.setBackground(new java.awt.Color(255, 255, 255));
         selectBtn.setText("Choose Class");
@@ -125,7 +125,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
                 selectBtnActionPerformed(evt);
             }
         });
-        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 260, 120, 50));
+        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 120, 50));
 
         deleteBtn.setBackground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("Delete");
@@ -134,7 +134,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
                 deleteBtnActionPerformed(evt);
             }
         });
-        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 90, 50));
+        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 490, 90, 50));
 
         yourClassJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,11 +161,11 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(yourClassJTable);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 600, 140));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 640, 140));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel6.setText("Your Class");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
 
         classJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,7 +195,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(classJTable);
 
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 730, 160));
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 740, 160));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -212,6 +212,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         }
         else {
             CoachClass cc = (CoachClass)classJTable.getValueAt(selectedClass, 0);
+            cc.setPerticipants(cc.getPerticipants()+1);
 
             //restaurant table
             DefaultTableModel dtmYourClass = (DefaultTableModel)yourClassJTable.getModel();
@@ -254,6 +255,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
             ua.getWorkQueue().getWorkRequestList().add(classRequest);
             userAccount.getWorkQueue().getWorkRequestList().add(classRequest);
             userAccount.getClasslist().add(cc);
+            populateTable();
         }
     }//GEN-LAST:event_selectBtnActionPerformed
     
@@ -266,6 +268,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         }
 
         CoachClass cc = (CoachClass)yourClassJTable.getValueAt(selectedClass, 0);
+        cc.setPerticipants(cc.getPerticipants()-1);
 //        System.out.println(cc.getCoach());
         UserAccount ua = null;
         for (Organization organization : fitnessCoEnterprise.getOrganizationDirectory().getOrganizationList()) {
