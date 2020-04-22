@@ -95,6 +95,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         classJTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setPreferredSize(new java.awt.Dimension(963, 600));
@@ -134,7 +135,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
                 deleteBtnActionPerformed(evt);
             }
         });
-        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 490, 90, 50));
+        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, 90, 50));
 
         yourClassJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,11 +162,11 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(yourClassJTable);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 640, 140));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 640, 140));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel6.setText("Your Class");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
 
         classJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -196,6 +197,9 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         jScrollPane4.setViewportView(classJTable);
 
         add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 740, 160));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/健身房.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -303,6 +307,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backJButton;
     private javax.swing.JTable classJTable;
     private javax.swing.JButton deleteBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

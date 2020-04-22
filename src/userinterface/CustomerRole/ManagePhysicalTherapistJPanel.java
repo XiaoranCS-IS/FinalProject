@@ -77,6 +77,7 @@ public class ManagePhysicalTherapistJPanel extends javax.swing.JPanel {
         ptJTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         selectBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,11 +124,12 @@ public class ManagePhysicalTherapistJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(ptJTable);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 175, 310, 204));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, 310, 160));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(81, 81, 81));
         jLabel3.setText("Physical Therapist List");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 94, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
 
         selectBtn.setBackground(new java.awt.Color(255, 255, 255));
         selectBtn.setText("Order");
@@ -136,7 +138,10 @@ public class ManagePhysicalTherapistJPanel extends javax.swing.JPanel {
                 selectBtnActionPerformed(evt);
             }
         });
-        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 98, 54));
+        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 98, 54));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/推拿.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -176,6 +181,7 @@ ptJTable.clearSelection();
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable ptJTable;

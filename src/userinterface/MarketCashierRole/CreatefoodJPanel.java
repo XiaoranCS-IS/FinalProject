@@ -60,6 +60,7 @@ public class CreatefoodJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         nameJTextField3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,11 +72,11 @@ public class CreatefoodJPanel extends javax.swing.JPanel {
                 createUserJButtonActionPerformed(evt);
             }
         });
-        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 404, 159, 68));
+        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 159, 68));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Stock: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 314, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
 
         backjButton1.setBackground(new java.awt.Color(255, 255, 255));
         backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -89,7 +90,7 @@ public class CreatefoodJPanel extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel5.setText("Food Name:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 177, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 207, -1, -1));
@@ -99,29 +100,32 @@ public class CreatefoodJPanel extends javax.swing.JPanel {
                 nameJTextField1ActionPerformed(evt);
             }
         });
-        add(nameJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 308, 146, 39));
+        add(nameJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 146, 39));
 
         nameJTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameJTextField2ActionPerformed(evt);
             }
         });
-        add(nameJTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 177, 146, 37));
+        add(nameJTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 230, 146, 37));
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
         jLabel6.setText("Add New Food :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 96, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
 
         nameJTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameJTextField3ActionPerformed(evt);
             }
         });
-        add(nameJTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 240, 146, 39));
+        add(nameJTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 146, 39));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel7.setText("Price: ");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 246, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/食物-1.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
@@ -176,6 +180,7 @@ public class CreatefoodJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backjButton1;
     private javax.swing.JButton createUserJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

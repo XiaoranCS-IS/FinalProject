@@ -84,6 +84,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         createBtn = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,28 +110,28 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 556, 350));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 556, 290));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 410, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
 
         networkJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 136, -1));
+        add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 136, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, -1, -1));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, 136, 35));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, -1, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 490, 136, 35));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Enterprise Type");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, -1, -1));
 
         enterpriseTypeJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         enterpriseTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(enterpriseTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 460, 136, -1));
+        add(enterpriseTypeJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 136, -1));
 
         createBtn.setBackground(new java.awt.Color(255, 255, 255));
         createBtn.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -140,7 +141,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 createBtnActionPerformed(evt);
             }
         });
-        add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, 140, 70));
+        add(createBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 460, 140, 70));
 
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
         backBtn.setText("<< Back");
@@ -158,7 +159,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 DeleteBtnActionPerformed(evt);
             }
         });
-        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, 40));
+        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, 40));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/企业1.png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
@@ -231,6 +235,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;

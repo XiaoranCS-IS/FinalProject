@@ -96,7 +96,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         loginJButton.setBackground(new java.awt.Color(255, 255, 255));
         loginJButton.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        loginJButton.setForeground(new java.awt.Color(114, 155, 156));
+        loginJButton.setForeground(new java.awt.Color(99, 135, 136));
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
