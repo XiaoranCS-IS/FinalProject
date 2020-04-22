@@ -263,6 +263,8 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         }
         for (int i = 0; i < dtmOrder.getRowCount(); i++) {
             message += " " + dtmOrder.getValueAt(i, 0).toString() + "*" + dtmOrder.getValueAt(i, 1).toString();
+            Food f = (Food) dtmOrder.getValueAt(i, 0);
+            f.setStock(f.getStock() - Integer.parseInt(dtmOrder.getValueAt(i, 1).toString()));
         }
         
         WorkRequest orderRequest = new WorkRequest();
@@ -277,7 +279,6 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
                 ua.getWorkQueue().getWorkRequestList().add(orderRequest);
             }
         }
-
         userAccount.getWorkQueue().getWorkRequestList().add(orderRequest);
         JOptionPane.showMessageDialog(null, "Product ordered!");
         dtmOrder.setRowCount(0);

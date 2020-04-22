@@ -269,7 +269,10 @@ public class MainJFrame extends javax.swing.JFrame {
                 verifyCodeLabel.setVisible(true);
                 verifyCodeField.setVisible(true);
                                 JOptionPane.showMessageDialog(null, "The verification code has been sent to your email!");
-
+                userNameJTextField.setBorder(new LineBorder(Color.white, 1));
+                passwordField.setBorder(new LineBorder(Color.white, 1));
+                jLabel1.setForeground(white);
+                jLabel2.setForeground(white);
                 sendVerifyMail(userAccount);
                 
                 return;

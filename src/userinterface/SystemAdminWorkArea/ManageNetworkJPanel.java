@@ -140,7 +140,12 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         if (!nameJTextField.getText().equals("")) {
             String name = nameJTextField.getText();
-
+            for (Network n : system.getNetworkList()) {
+                if (n.getName().equals(name)) {
+                    JOptionPane.showMessageDialog(null, "Username existed!");
+                    return;
+                }
+            }
             Network network = system.createAndAddNetwork();
             network.setName(name);
             JOptionPane.showMessageDialog(null, "Created successfully !");
