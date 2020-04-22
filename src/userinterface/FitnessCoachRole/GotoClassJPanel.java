@@ -126,7 +126,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, -1, 50));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, -1, 50));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Coach  xxx 's order: ");
@@ -139,7 +139,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 110, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, 110, 50));
 
         backjButton1.setBackground(new java.awt.Color(255, 255, 255));
         backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

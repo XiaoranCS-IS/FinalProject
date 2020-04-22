@@ -78,7 +78,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 158, 26));
 
-        manageClassBtn.setBackground(new java.awt.Color(255, 91, 83));
+        manageClassBtn.setBackground(new java.awt.Color(255, 255, 255));
         manageClassBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         manageClassBtn.setText("My Fitness Classes");
         manageClassBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +88,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(manageClassBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 200, 70));
 
-        manageFoodBtn.setBackground(new java.awt.Color(255, 198, 66));
+        manageFoodBtn.setBackground(new java.awt.Color(255, 255, 255));
         manageFoodBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         manageFoodBtn.setText("Buy foods");
         manageFoodBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         });
         add(manageOrderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, 180, 50));
 
-        manageTherapistBtn.setBackground(new java.awt.Color(0, 182, 174));
+        manageTherapistBtn.setBackground(new java.awt.Color(255, 255, 255));
         manageTherapistBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         manageTherapistBtn.setText("Schedule Therapist");
         manageTherapistBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -119,13 +119,13 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         add(manageTherapistBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 190, 70));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 362, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/food (1).gif"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/食物-35.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 190, 180));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/overhead_700x700_square (1).gif"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 220, 180));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/推拿2.png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 220, 200));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/cicle (1).gif"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/健身房.png"))); // NOI18N
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 210, 180));
     }// </editor-fold>//GEN-END:initComponents
 
