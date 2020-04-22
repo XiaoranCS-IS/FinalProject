@@ -31,7 +31,7 @@ public class CoachClassdirectory {
         CoachClasslist.remove(coachClass);
         
     }
-    public CoachClass addCoachClass(String classname,String coach,int capacity,Date time){
+    public CoachClass addCoachClass(String classname,String coach,int capacity,String time){
         CoachClass coachClass = new CoachClass();
         coachClass.setClassname(classname);
         coachClass.setCapacity(capacity);

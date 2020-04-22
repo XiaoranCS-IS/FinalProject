@@ -10,6 +10,7 @@ import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -200,7 +201,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         Role role = (Role) roleJComboBox.getSelectedItem();
         
         organization.getUserAccountDirectory().createUserAccount(userName, password, null, employee, role);
-        
+                                        JOptionPane.showMessageDialog(null, "User added successfully !");
+                                        nameJTextField.setText("");
+                                        passwordJTextField.setText("");
+                                        
+
         popData();
     }//GEN-LAST:event_createUserJButtonActionPerformed
 

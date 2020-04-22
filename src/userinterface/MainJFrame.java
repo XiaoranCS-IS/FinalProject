@@ -18,16 +18,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-        
-import java.util.Properties; 
- 
-import javax.mail.Address; 
-import javax.mail.Message; 
-import javax.mail.MessagingException; 
-import javax.mail.Session; 
-import javax.mail.Transport; 
-import javax.mail.internet.InternetAddress; 
-import javax.mail.internet.MimeMessage; 
+import java.util.Properties;
+
+import javax.mail.Address;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  *
@@ -47,11 +46,14 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         this.setSize(1163, 604);
         logoutJButton.setVisible(false);
+
+        verifyCodeLabel.setVisible(false);
+        verifyCodeField.setVisible(false);
+
         userNameJTextField.setBorder(new LineBorder(Color.white, 1));
         passwordField.setBorder(new LineBorder(Color.white, 1));
         verifyCodeField.setBorder(new LineBorder(Color.white, 1));
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,6 +104,10 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        userNameJTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
+        passwordField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("User Name");
@@ -126,6 +132,8 @@ public class MainJFrame extends javax.swing.JFrame {
         verifyCodeLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         verifyCodeLabel.setForeground(new java.awt.Color(255, 255, 255));
         verifyCodeLabel.setText("Verify Code");
+
+        verifyCodeField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -210,7 +218,7 @@ public class MainJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter your password and name!");
             return;
         }
-        
+
         // Get user name
         String userName = userNameJTextField.getText();
         // Get Password
@@ -255,15 +263,17 @@ public class MainJFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-        }
-        //sysadmin account
+        } //sysadmin account
         else {
             if (verifyCodeField.getText().isEmpty()) {
+                verifyCodeLabel.setVisible(true);
+                verifyCodeField.setVisible(true);
+                                JOptionPane.showMessageDialog(null, "The verification code has been sent to your email!");
+
                 sendVerifyMail(userAccount);
-                JOptionPane.showMessageDialog(null, "The verification code has been sent to your email!");
+                
                 return;
-            }
-            else if (!verifyCodeField.getText().equals(Integer.toString(verifyCode))) {
+            } else if (!verifyCodeField.getText().equals(Integer.toString(verifyCode))) {
                 JOptionPane.showMessageDialog(null, "VerifyCode Error!");
                 verifyCodeField.setBorder(new LineBorder(Color.red, 1));
                 verifyCodeLabel.setForeground(red);
@@ -314,7 +324,7 @@ public class MainJFrame extends javax.swing.JFrame {
         logoutJButton.setEnabled(false);
         userNameJTextField.setEnabled(true);
         passwordField.setEnabled(true);
-        verifyCodeField.setVisible(true);
+        verifyCodeField.setEnabled(true);
         loginJButton.setEnabled(true);
 
         loginJButton.setVisible(true);
@@ -325,6 +335,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setVisible(true);
         verifyCodeLabel.setVisible(true);
         logoutJButton.setVisible(false);
+
+        verifyCodeLabel.setVisible(false);
+        verifyCodeField.setVisible(false);
 
         userNameJTextField.setText("");
         passwordField.setText("");
@@ -357,13 +370,13 @@ public class MainJFrame extends javax.swing.JFrame {
             props.setProperty("mail.transport.protocol", "smtp");
 
             Session session = Session.getInstance(props);
-            
+
             //邮件内容部分
             Message msg = new MimeMessage(session);
-            msg.addRecipients(Message.RecipientType.CC,InternetAddress.parse("lxrtsq@163.com"));
+            msg.addRecipients(Message.RecipientType.CC, InternetAddress.parse("lxrtsq@163.com"));
             msg.addRecipients(Message.RecipientType.TO, InternetAddress.parse(userAccount.getMail()));
             msg.setSubject("Whole gyms verify code");
-            int randomCode = (int) ((Math.random()*9+1)*1000);
+            int randomCode = (int) ((Math.random() * 9 + 1) * 1000);
             //save code
             verifyCode = randomCode;
             msg.setText("Your verify code is: " + Integer.toString(randomCode));
@@ -378,10 +391,10 @@ public class MainJFrame extends javax.swing.JFrame {
             transport.close();
 
         } catch (MessagingException e) {
-             System.err.println("邮件发送失败！" + e);
+            System.err.println("邮件发送失败！" + e);
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -408,12 +421,7 @@ public class MainJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-        
-       
 
-        
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -29,7 +29,7 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
     private MarketCoEnterprise marketEnterprise;
     private EcoSystem ecoSystem;
     private JPanel userProcessContainer;
-    
+
     /**
      * Creates new form ManageOrganizationJPanel
      */
@@ -39,24 +39,25 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         this.userAccount = account;
         this.marketEnterprise = (MarketCoEnterprise) enterprise;
         this.ecoSystem = ecoSystem;
-        
+
         populateTable();
     }
 
-    private void populateTable(){
+    private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) productJTable.getModel();
-        
+
         model.setRowCount(0);
-        
-        for (Food food: marketEnterprise.getFoodlist()){
+
+        for (Food food : marketEnterprise.getFoodlist()) {
             Object[] row = new Object[3];
             row[0] = food;
             row[1] = food.getPrice();
             row[2] = food.getStock();
-            
+
             model.addRow(row);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,7 +90,7 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 533, -1, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, 50));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel3.setText("Product List");
@@ -178,11 +179,13 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         jScrollPane4.setViewportView(productJTable);
 
         add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 364, 213));
-        add(totalTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 410, 164, -1));
+
+        totalTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        add(totalTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, 120, 30));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Total:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -194,28 +197,26 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
     private void selectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectBtnActionPerformed
 
         int selectedProd = productJTable.getSelectedRow();
-        if (selectedProd < 0){
+        if (selectedProd < 0) {
             JOptionPane.showMessageDialog(null, "Please select a product from table", "Warning", JOptionPane.WARNING_MESSAGE);
-        }
-        else {
-            Food food = (Food)productJTable.getValueAt(selectedProd, 0);
+        } else {
+            Food food = (Food) productJTable.getValueAt(selectedProd, 0);
 
             //restaurant table
-            DefaultTableModel dtmOrder = (DefaultTableModel)orderJTable.getModel();
-            for(int i = 0; i < dtmOrder.getRowCount(); i++){
+            DefaultTableModel dtmOrder = (DefaultTableModel) orderJTable.getModel();
+            for (int i = 0; i < dtmOrder.getRowCount(); i++) {
                 if (dtmOrder.getValueAt(i, 0).equals(food)) {
                     int num = Integer.parseInt(dtmOrder.getValueAt(i, 1).toString());
-                    int price = Integer.parseInt(dtmOrder.getValueAt(i, 2).toString());
+                    double price = Double.parseDouble(dtmOrder.getValueAt(i, 2).toString());
                     if (food.getStock() > num) {
                         num++;
                         dtmOrder.setValueAt(num, i, 1);
-                        dtmOrder.setValueAt(num*food.getPrice(), i, 2);
+                        dtmOrder.setValueAt(num * food.getPrice(), i, 2);
 
                         //
                         updateTotalTextField();
                         return;
-                    }
-                    else {
+                    } else {
                         JOptionPane.showMessageDialog(null, "Product stock is not enough", "Warning", JOptionPane.WARNING_MESSAGE);
                         return;
                     }
@@ -223,40 +224,42 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
             }
             //add order
             Object[] row = new Object[dtmOrder.getColumnCount()];
-            row[0]=food;
-            row[1]=1;
-            row[2]=food.getPrice();
-            
+            row[0] = food;
+            row[1] = 1;
+            row[2] = food.getPrice();
             dtmOrder.addRow(row);
-            
+
             //
             updateTotalTextField();
+            populateTable();
+
         }
     }//GEN-LAST:event_selectBtnActionPerformed
     private void updateTotalTextField() {
-        int total = 0;
-        DefaultTableModel dtmOrder = (DefaultTableModel)orderJTable.getModel();
-        for(int i = 0; i < dtmOrder.getRowCount(); i++){
-            int price = Integer.parseInt(dtmOrder.getValueAt(i, 2).toString());
+        double total = 0;
+        DefaultTableModel dtmOrder = (DefaultTableModel) orderJTable.getModel();
+        for (int i = 0; i < dtmOrder.getRowCount(); i++) {
+            double price = Double.parseDouble(dtmOrder.getValueAt(i, 2).toString());
             total += price;
         }
+       
         
-        totalTextField.setText(Integer.toString(total));
+        totalTextField.setText(String.format("%.2f", total));
     }
-    
+
     private void orderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderBtnActionPerformed
 
         String message = userAccount.getUsername();
 
-        DefaultTableModel dtmOrder = (DefaultTableModel)orderJTable.getModel();
+        DefaultTableModel dtmOrder = (DefaultTableModel) orderJTable.getModel();
         if (dtmOrder.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Please order", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        for(int i = 0; i < dtmOrder.getRowCount(); i++){
-            message += " " + dtmOrder.getValueAt(i, 0).toString() + "*" +dtmOrder.getValueAt(i, 1).toString();
+        for (int i = 0; i < dtmOrder.getRowCount(); i++) {
+            message += " " + dtmOrder.getValueAt(i, 0).toString() + "*" + dtmOrder.getValueAt(i, 1).toString();
         }
-        UserAccount receiveAccount = marketEnterprise.getManagerUserAccount();
+        UserAccount receiveAccount = marketEnterprise.getOrganizationDirectory().getOrganizationList().get(0).getUserAccountDirectory().getUserAccountList().get(0);
         WorkRequest orderRequest = new WorkRequest();
         orderRequest.setMessage(message);
         orderRequest.setReceiver(receiveAccount);
@@ -267,10 +270,13 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         receiveAccount.getWorkQueue().getWorkRequestList().add(orderRequest);
         userAccount.getWorkQueue().getWorkRequestList().add(orderRequest);
         JOptionPane.showMessageDialog(null, "Product ordered!");
+        dtmOrder.setRowCount(0);
+        totalTextField.setText("");
+
         DB4OUtil.getInstance().storeSystem(ecoSystem);
         populateTable();
     }//GEN-LAST:event_orderBtnActionPerformed
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;

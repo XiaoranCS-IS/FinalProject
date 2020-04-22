@@ -112,20 +112,20 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Manage Class");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Class List");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         selectBtn.setBackground(new java.awt.Color(255, 255, 255));
-        selectBtn.setText("Select");
+        selectBtn.setText("Choose Class");
         selectBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectBtnActionPerformed(evt);
             }
         });
-        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 98, 50));
+        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 260, 120, 50));
 
         deleteBtn.setBackground(new java.awt.Color(255, 255, 255));
         deleteBtn.setText("Delete");
@@ -134,7 +134,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
                 deleteBtnActionPerformed(evt);
             }
         });
-        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 440, 97, 50));
+        add(deleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 490, 90, 50));
 
         yourClassJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,11 +161,11 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(yourClassJTable);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 380, 270));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 640, 140));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel6.setText("Your Class");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
 
         classJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,7 +195,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(classJTable);
 
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 420, 270));
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 740, 160));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -212,6 +212,7 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
         }
         else {
             CoachClass cc = (CoachClass)classJTable.getValueAt(selectedClass, 0);
+            cc.setPerticipants(cc.getPerticipants()+1);
 
             //restaurant table
             DefaultTableModel dtmYourClass = (DefaultTableModel)yourClassJTable.getModel();
@@ -254,24 +255,42 @@ public class ManageCoachClassJPanel extends javax.swing.JPanel {
             ua.getWorkQueue().getWorkRequestList().add(classRequest);
             userAccount.getWorkQueue().getWorkRequestList().add(classRequest);
             userAccount.getClasslist().add(cc);
+            populateTable();
         }
     }//GEN-LAST:event_selectBtnActionPerformed
     
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
 
-        int selectedClass = classJTable.getSelectedRow();
+        int selectedClass = yourClassJTable.getSelectedRow();
         if (selectedClass < 0) {
             JOptionPane.showMessageDialog(null, "Please select a class", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        CoachClass cc = (CoachClass)classJTable.getValueAt(selectedClass, 0);
-        UserAccount ua = fitnessCoEnterprise.getUserAccountDirectory().getUserAccountByName(cc.getCoach());
+        CoachClass cc = (CoachClass)yourClassJTable.getValueAt(selectedClass, 0);
+        cc.setPerticipants(cc.getPerticipants()-1);
+//        System.out.println(cc.getCoach());
+        UserAccount ua = null;
+        for (Organization organization : fitnessCoEnterprise.getOrganizationDirectory().getOrganizationList()) {
+            ua = organization.getUserAccountDirectory().getUserAccountByName(cc.getCoach());
+            if (ua!= null) {
+                break;
+            }
+        }
+        
+        if (ua == null) {
+            JOptionPane.showMessageDialog(null, "Can not find class!");
+        }
+
+        System.out.println(ua.getPassword());
+        
+        
         for (WorkRequest workRequest : ua.getWorkQueue().getWorkRequestList()) {
             if (workRequest.getMessage().equals(cc.getClassname())) {
                 ua.getWorkQueue().getWorkRequestList().remove(workRequest);
                 userAccount.getWorkQueue().getWorkRequestList().remove(workRequest);
                 userAccount.getClasslist().remove(cc);
+                break;
             }
         }
         

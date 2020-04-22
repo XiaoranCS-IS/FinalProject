@@ -130,13 +130,13 @@ public class ManagePhysicalTherapistJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 94, -1, -1));
 
         selectBtn.setBackground(new java.awt.Color(255, 255, 255));
-        selectBtn.setText("Select");
+        selectBtn.setText("Order");
         selectBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectBtnActionPerformed(evt);
             }
         });
-        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 420, 98, 54));
+        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 98, 54));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -164,8 +164,12 @@ public class ManagePhysicalTherapistJPanel extends javax.swing.JPanel {
             workRequest.setStatus("waiting");
             workRequest.setRequestDate(new Date());
             
+            
             userAccount.getWorkQueue().getWorkRequestList().add(workRequest);
             ua.getWorkQueue().getWorkRequestList().add(workRequest);
+            
+                    JOptionPane.showMessageDialog(null, "Physical Therapy ordered!");
+ptJTable.clearSelection();
             DB4OUtil.getInstance().storeSystem(ecoSystem);
         }
     }//GEN-LAST:event_selectBtnActionPerformed

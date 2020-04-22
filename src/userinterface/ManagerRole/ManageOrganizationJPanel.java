@@ -9,6 +9,7 @@ import Business.Organization.Organization;
 import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -151,6 +152,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
         Type type = (Type) organizationJComboBox.getSelectedItem();
         directory.createOrganization(type);
+                                JOptionPane.showMessageDialog(null, "Organization added successfully !");
+
         populateTable();
     }//GEN-LAST:event_addJButtonActionPerformed
 
