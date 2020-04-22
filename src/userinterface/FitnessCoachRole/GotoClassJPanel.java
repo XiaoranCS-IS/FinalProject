@@ -78,6 +78,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         backjButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,7 +117,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 680, 350));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 580, 370));
 
         assignJButton.setBackground(new java.awt.Color(255, 255, 255));
         assignJButton.setText("Attended ");
@@ -125,11 +126,11 @@ public class GotoClassJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, -1, 50));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, -1, 50));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Coach  xxx 's order: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Not Attended");
@@ -138,7 +139,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 110, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, 110, 50));
 
         backjButton1.setBackground(new java.awt.Color(255, 255, 255));
         backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -149,6 +150,9 @@ public class GotoClassJPanel extends javax.swing.JPanel {
             }
         });
         add(backjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 502, 112, 56));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/点名测试.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -192,6 +196,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
     private javax.swing.JButton backjButton1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables

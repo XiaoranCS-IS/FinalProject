@@ -98,6 +98,7 @@ public class CreateClassJPanel extends javax.swing.JPanel {
         nameJTextField1 = new javax.swing.JTextField();
         nameJTextField2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -109,11 +110,11 @@ public class CreateClassJPanel extends javax.swing.JPanel {
                 createUserJButtonActionPerformed(evt);
             }
         });
-        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 110, 60));
+        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 440, 110, 60));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Capacity: ");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(329, 277, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, -1));
 
         backjButton1.setBackground(new java.awt.Color(255, 255, 255));
         backjButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -123,15 +124,15 @@ public class CreateClassJPanel extends javax.swing.JPanel {
                 backjButton1ActionPerformed(evt);
             }
         });
-        add(backjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 502, 112, 56));
+        add(backjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 112, 56));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel5.setText("Class Name:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 212, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Time:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 328, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
 
         roleJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -139,25 +140,28 @@ public class CreateClassJPanel extends javax.swing.JPanel {
                 roleJComboBoxActionPerformed(evt);
             }
         });
-        add(roleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 329, 146, -1));
+        add(roleJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 146, -1));
 
         nameJTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameJTextField1ActionPerformed(evt);
             }
         });
-        add(nameJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 271, 146, 39));
+        add(nameJTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 146, 39));
 
         nameJTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameJTextField2ActionPerformed(evt);
             }
         });
-        add(nameJTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(438, 212, 146, 37));
+        add(nameJTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 146, 37));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel6.setText("Class by xxx :");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/健身教练.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
@@ -211,6 +215,7 @@ public class CreateClassJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backjButton1;
     private javax.swing.JButton createUserJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

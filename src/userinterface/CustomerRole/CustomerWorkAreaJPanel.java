@@ -63,8 +63,8 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         manageTherapistBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setPreferredSize(new java.awt.Dimension(963, 600));
@@ -96,7 +96,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 manageFoodBtnActionPerformed(evt);
             }
         });
-        add(manageFoodBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 176, 70));
+        add(manageFoodBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 176, 70));
 
         manageOrderBtn.setBackground(new java.awt.Color(255, 255, 255));
         manageOrderBtn.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
@@ -120,13 +120,13 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(866, 362, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/食物-35.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 210, 190));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 190, 180));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/健身房.png"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/推拿2.png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 220, 200));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/推拿.png"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 180, 220, 200));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/健身房.png"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 210, 180));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageFoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageFoodBtnActionPerformed
@@ -161,8 +161,8 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton manageClassBtn;
     private javax.swing.JButton manageFoodBtn;
     private javax.swing.JButton manageOrderBtn;

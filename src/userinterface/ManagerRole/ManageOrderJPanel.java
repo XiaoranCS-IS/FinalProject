@@ -104,6 +104,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         enterpriseJComboBox = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
         seekBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,7 +141,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             orderJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 113, 547, 250));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 547, 180));
 
         acceptBtn.setBackground(new java.awt.Color(255, 255, 255));
         acceptBtn.setText(" Accept Cooperation");
@@ -149,7 +150,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 acceptBtnActionPerformed(evt);
             }
         });
-        add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 421, 163, 60));
+        add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 450, 163, 60));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
@@ -162,7 +163,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Enterprise ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 381, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, -1, -1));
 
         enterpriseJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -171,11 +172,11 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 enterpriseJComboBoxActionPerformed(evt);
             }
         });
-        add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 382, 163, -1));
+        add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 163, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel2.setText("Manage Cooperation");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 45, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, -1, -1));
 
         seekBtn.setBackground(new java.awt.Color(255, 255, 255));
         seekBtn.setText("Seek Cooperation");
@@ -184,7 +185,10 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 seekBtnActionPerformed(evt);
             }
         });
-        add(seekBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 421, -1, 60));
+        add(seekBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 450, -1, 60));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/合作.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
@@ -254,6 +258,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable orderJTable;
     private javax.swing.JButton seekBtn;

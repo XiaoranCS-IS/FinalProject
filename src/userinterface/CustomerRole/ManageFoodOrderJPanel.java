@@ -80,6 +80,7 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         productJTable = new javax.swing.JTable();
         totalTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,15 +92,15 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
                 backJButtonActionPerformed(evt);
             }
         });
-        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, 50));
+        add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, 50));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel3.setText("Product List");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Product");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
         selectBtn.setBackground(new java.awt.Color(255, 255, 255));
         selectBtn.setText("Select");
@@ -108,7 +109,7 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
                 selectBtnActionPerformed(evt);
             }
         });
-        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 98, 52));
+        add(selectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 98, 52));
 
         orderBtn.setBackground(new java.awt.Color(255, 255, 255));
         orderBtn.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -118,7 +119,7 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
                 orderBtnActionPerformed(evt);
             }
         });
-        add(orderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 490, 130, 80));
+        add(orderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, 130, 80));
 
         orderJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,11 +146,11 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane5.setViewportView(orderJTable);
 
-        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 385, 220));
+        add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 385, 220));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel6.setText("Order");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 150, -1, -1));
 
         productJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,14 +180,17 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(productJTable);
 
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 364, 213));
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 364, 213));
 
         totalTextField.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        add(totalTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, 120, 30));
+        add(totalTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 410, 120, 30));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Total:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 410, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/超市.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -286,6 +290,7 @@ public class ManageFoodOrderJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
