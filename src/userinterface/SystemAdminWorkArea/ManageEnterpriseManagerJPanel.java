@@ -204,6 +204,17 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
         String username = usernameJTextField.getText();
         String password = String.valueOf(passwordJPasswordField.getPassword());
         if (!(usernameJTextField.getText().equals("") || passwordJPasswordField.getText().equals(""))) {
+            
+            for (Network n : system.getNetworkList()) {
+                for ( Enterprise e: n.getEnterpriseDirectory().getEnterpriseList()) {
+                    if (e.getManagerUserAccount() != null) {
+                        if (username.equals(e.getManagerUserAccount().getUsername())) {
+                            JOptionPane.showMessageDialog(null, "Username existed!");
+                            return;
+                        }
+                    }
+                }
+            }
             Employee employee = enterprise.getEmployeeDirectory().createEmployee(usernameJTextField.getText());
 
             UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, null, employee, new ManagerRole());
@@ -231,7 +242,7 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
 
     private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
         // TODO add your handling code here:
-                int selectedRow = enterpriseJTable.getSelectedRow();
+        int selectedRow = enterpriseJTable.getSelectedRow();
         Network network =(Network) enterpriseJTable.getValueAt(selectedRow, 1);
         Enterprise enterprise = network.getEnterpriseDirectory().getEnterpriseByName((String) enterpriseJTable.getValueAt(selectedRow, 0));
         

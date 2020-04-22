@@ -95,7 +95,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
                 row[1] = w.getSender().getUsername();
 //                row[2] = w.getRequestDate();
 //切分出订单总价
-                row[3] = w.getStatus();
+                row[2] = w.getStatus();
                 dtmOrders.addRow(row);
             }
         }
@@ -201,15 +201,23 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "order no.", "customer", "total", "status"
+                "order no.", "customer", "status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 590, 160));
