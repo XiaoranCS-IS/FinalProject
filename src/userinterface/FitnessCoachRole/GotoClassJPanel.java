@@ -50,7 +50,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        for (WorkRequest request : labOrganization.getWorkQueue().getWorkRequestList()) {
+        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
             if (request.getMessage().equals(cc.getClassname())) {
                 Object[] row = new Object[4];
                 row[0] = request;
