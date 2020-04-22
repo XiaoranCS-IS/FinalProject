@@ -14,6 +14,8 @@ import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -34,6 +36,7 @@ public class UpdateclassJPanel extends javax.swing.JPanel {
     UpdateclassJPanel(JPanel userProcessContainer,CoachClass cc) {
         initComponents();
         this.container = userProcessContainer;
+        this.cc=cc;
         nameJTextField1.setEnabled(false);
         nameJTextField2.setEnabled(false);
         
@@ -43,6 +46,23 @@ public class UpdateclassJPanel extends javax.swing.JPanel {
         roleJComboBox.addItem(cc.getTime());
         nameJTextField2.setText(cc.getClassname());
         nameJTextField1.setText(String.valueOf(cc.getCapacity()));
+        
+        SimpleDateFormat sdf = new SimpleDateFormat();// Format time
+        sdf.applyPattern("yyyy-MM");
+        Date date = new Date();// get current time
+        String yearMonth = sdf.format(date);
+        sdf.applyPattern("dd");
+        String day = sdf.format(date);
+        int dayi = Integer.parseInt(day);
+        for (int i = 0; i < 10; i++) {
+            if (dayi < 10) {
+                day = "0" + String.valueOf(dayi);
+            } else {
+                day = String.valueOf(dayi);
+            }
+            this.roleJComboBox.addItem(yearMonth + "-" + day);
+            dayi++;
+        }
     }
 
     /**
@@ -62,6 +82,7 @@ public class UpdateclassJPanel extends javax.swing.JPanel {
         nameJTextField1 = new javax.swing.JTextField();
         nameJTextField2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,6 +133,9 @@ public class UpdateclassJPanel extends javax.swing.JPanel {
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel6.setText("Class by xxx :");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 149, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/健身教练.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createUserJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserJButtonActionPerformed
@@ -119,7 +143,7 @@ public class UpdateclassJPanel extends javax.swing.JPanel {
 //            if (Integer.parseInt(nameJTextField1.getText()) < 200 && Integer.parseInt(nameJTextField1.getText()) > 0) {
 //                cc.setClassname(nameJTextField2.getText());
 //                cc.setCapacity(Integer.parseInt(nameJTextField1.getText()));
-//        cc.setTime(time);
+        cc.setTime(roleJComboBox.getSelectedItem().toString());
 
 
 //                ccd.addCoachClass(cc.getClassname(), cc.getCoach(), cc.getCapacity(), cc.getTime());
@@ -152,6 +176,7 @@ public class UpdateclassJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createUserJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

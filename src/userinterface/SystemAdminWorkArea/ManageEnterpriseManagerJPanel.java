@@ -95,6 +95,7 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
         passwordJPasswordField = new javax.swing.JPasswordField();
         backJButton = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,11 +121,11 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 620, 200));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 590, 200));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Network");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
 
         networkJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -133,20 +134,20 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
                 networkJComboBoxActionPerformed(evt);
             }
         });
-        add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 136, -1));
+        add(networkJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 136, -1));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("Username");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
-        add(usernameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 136, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
+        add(usernameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 370, 136, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Enterprise");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
 
         enterpriseJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 136, -1));
+        add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 136, -1));
 
         submitJButton.setBackground(new java.awt.Color(255, 255, 255));
         submitJButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -156,12 +157,12 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 480, 120, 70));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 460, 120, 70));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("Password");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, -1, -1));
-        add(passwordJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 134, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, -1, -1));
+        add(passwordJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, 134, -1));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
@@ -179,7 +180,10 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
                 DeleteBtnActionPerformed(evt);
             }
         });
-        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, 40));
+        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, -1, 40));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/经理.png"))); // NOI18N
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
@@ -252,6 +256,7 @@ public class ManageEnterpriseManagerJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox networkJComboBox;
     private javax.swing.JPasswordField passwordJPasswordField;

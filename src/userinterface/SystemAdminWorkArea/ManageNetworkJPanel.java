@@ -61,6 +61,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         nameJTextField = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
         DeleteBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,11 +97,11 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             networkJTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 404, 130));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 404, 150));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, -1, -1));
 
         submitJButton.setBackground(new java.awt.Color(255, 255, 255));
         submitJButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -110,8 +111,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 110, 60));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 130, -1));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 110, 60));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 130, -1));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
@@ -129,7 +130,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 DeleteBtnActionPerformed(evt);
             }
         });
-        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, -1, 40));
+        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/网络1.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
@@ -179,6 +183,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     private javax.swing.JButton DeleteBtn;
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JTable networkJTable;

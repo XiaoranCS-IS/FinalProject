@@ -126,6 +126,8 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,7 +165,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 350, 140));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 350, 140));
 
         assignJButton.setBackground(new java.awt.Color(255, 255, 255));
         assignJButton.setText("add new food");
@@ -172,7 +174,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, -1, 50));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, 40));
 
         processJButton.setBackground(new java.awt.Color(255, 255, 255));
         processJButton.setText("checkout");
@@ -181,7 +183,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
                 processJButtonActionPerformed(evt);
             }
         });
-        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 510, -1, 60));
+        add(processJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, -1, 40));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("add stock");
@@ -195,7 +197,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Foodstock:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,7 +212,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 730, 140));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, 590, 160));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -244,7 +246,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
             jTable2.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 320, 140));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 300, 140));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("delete");
@@ -253,7 +255,7 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 80, 40));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, 80, 40));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setText("put off shelf");
@@ -262,15 +264,15 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, 50));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, 40));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("off shelf items:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Checkout Counter:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setText("refresh");
@@ -279,7 +281,14 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
                 jButton4ActionPerformed(evt);
             }
         });
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, 40));
+        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, 40));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/美元 钱.png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/货物管理.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 180, 190));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed
@@ -403,6 +412,8 @@ public class MarketCashierWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

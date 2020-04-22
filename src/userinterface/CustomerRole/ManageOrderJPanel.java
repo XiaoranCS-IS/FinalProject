@@ -65,6 +65,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         orderJTable = new javax.swing.JTable();
         backJButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(111, 158, 159));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,7 +101,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             orderJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 133, 595, 337));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 595, 337));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setText("<< Back");
@@ -113,7 +114,10 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel2.setText("Manage Orders");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 75, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/订单.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
@@ -125,6 +129,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable orderJTable;
