@@ -125,15 +125,17 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 113, 547, 250));
 
         acceptBtn.setBackground(new java.awt.Color(255, 255, 255));
+        acceptBtn.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         acceptBtn.setText(" Accept Cooperation");
         acceptBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptBtnActionPerformed(evt);
             }
         });
-        add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 421, 163, 60));
+        add(acceptBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 250, 60));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
+        backJButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +148,6 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         jLabel1.setText("Enterprise ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 381, -1, -1));
 
-        enterpriseJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,18 +156,19 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         });
         add(enterpriseJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 382, 163, -1));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Console", 0, 24)); // NOI18N
         jLabel2.setText("Manage Cooperation");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 45, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
         seekBtn.setBackground(new java.awt.Color(255, 255, 255));
+        seekBtn.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         seekBtn.setText("Seek Cooperation");
         seekBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seekBtnActionPerformed(evt);
             }
         });
-        add(seekBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 421, -1, 60));
+        add(seekBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, -1, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed

@@ -100,7 +100,6 @@ public class CreateClassJPanel extends javax.swing.JPanel {
         jLabel4.setText("Time:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 328, -1, -1));
 
-        roleJComboBox.setBackground(new java.awt.Color(255, 255, 255));
         roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

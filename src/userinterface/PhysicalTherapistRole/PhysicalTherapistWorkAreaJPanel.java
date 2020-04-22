@@ -108,7 +108,7 @@ public class PhysicalTherapistWorkAreaJPanel extends javax.swing.JPanel {
             workRequestJTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 610, 320));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 610, 320));
 
         assignJButton.setBackground(new java.awt.Color(255, 255, 255));
         assignJButton.setText("go to therapy");
@@ -117,7 +117,7 @@ public class PhysicalTherapistWorkAreaJPanel extends javax.swing.JPanel {
                 assignJButtonActionPerformed(evt);
             }
         });
-        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, -1, 60));
+        add(assignJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 500, -1, 60));
 
         refreshJButton.setBackground(new java.awt.Color(255, 255, 255));
         refreshJButton.setText("Refresh");
@@ -126,11 +126,11 @@ public class PhysicalTherapistWorkAreaJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, -1, 50));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, -1, 50));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel1.setText("Therapist  xxx 's order: ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

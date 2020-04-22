@@ -103,17 +103,18 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         submitJButton.setBackground(new java.awt.Color(255, 255, 255));
-        submitJButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        submitJButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitJButtonActionPerformed(evt);
             }
         });
-        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, 110, 60));
+        add(submitJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 110, 50));
         add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 320, 130, -1));
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
+        backJButton.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,13 +124,14 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         add(backJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, 50));
 
         DeleteBtn.setBackground(new java.awt.Color(255, 255, 255));
+        DeleteBtn.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         DeleteBtn.setText("Delete");
         DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteBtnActionPerformed(evt);
             }
         });
-        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, -1, 40));
+        add(DeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed

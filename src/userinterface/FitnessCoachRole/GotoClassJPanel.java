@@ -137,7 +137,7 @@ public class GotoClassJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 110, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, 160, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void assignJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButtonActionPerformed

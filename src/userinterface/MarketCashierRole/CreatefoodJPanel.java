@@ -71,7 +71,7 @@ public class CreatefoodJPanel extends javax.swing.JPanel {
                 createUserJButtonActionPerformed(evt);
             }
         });
-        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 404, 159, 68));
+        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, 159, 68));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel3.setText("Stock: ");
